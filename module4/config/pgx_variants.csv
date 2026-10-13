@@ -1,0 +1,14 @@
+gene,star_allele,rsid,alt,cardiac_drugs,clinical_effect
+CYP2C9,*2,rs1799853,T,warfarin,reduced warfarin clearance -> bleeding risk at standard dose
+CYP2C9,*3,rs1057910,C,warfarin,strongly reduced warfarin clearance -> bleeding risk
+VKORC1,-1639G>A,rs9923231,T,warfarin,increased warfarin sensitivity -> lower dose needed
+CYP4F2,*3,rs2108622,T,warfarin,modestly higher warfarin dose requirement
+CYP2C19,*2,rs4244285,A,clopidogrel,loss of function -> reduced clopidogrel activation
+CYP2C19,*3,rs4986893,A,clopidogrel,loss of function -> reduced clopidogrel activation
+CYP2C19,*17,rs12248560,T,clopidogrel,increased function
+SLCO1B1,c.521T>C,rs4149056,C,simvastatin;atorvastatin;rosuvastatin,reduced hepatic uptake -> statin myopathy risk
+ABCG2,c.421C>A,rs2231142,T,rosuvastatin,increased rosuvastatin exposure
+CYP2D6,*4,rs3892097,T,metoprolol;carvedilol;propafenone,non-functional -> higher beta-blocker exposure
+CYP2D6,*10,rs1065852,A,metoprolol;carvedilol;propafenone,reduced function (common in Asian populations)
+CYP3A5,*3,rs776746,C,amlodipine;atorvastatin,non-expresser
+CES1,G143E,rs71647871,T,dabigatran,reduced dabigatran activation

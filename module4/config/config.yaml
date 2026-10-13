@@ -1,0 +1,74 @@
+# Module 4 — Explainable GNN Framework for Cardiac Drug Interaction Prediction
+# Central config. All paths are relative to the module4/ folder.
+
+paths:
+  raw: data/raw
+  interim: data/interim
+  processed: data/processed
+  reports: reports
+
+# ---------------------------------------------------------------- DDI sources
+ddi:
+  # DrugBank-derived DDI set (Ryu et al. 2018, DrugBank 5.0; 86 mechanism-typed
+  # interaction templates). Distributed via Therapeutics Data Commons (PyTDC).
+  # Used as the DrugBank source while DrugBank academic downloads are paused.
+  tdc_drugbank: true
+
+  # Full DrugBank XML — place it here manually once your academic licence
+  # download is available. Pipeline will prefer it automatically when present.
+  drugbank_xml: data/raw/drugbank/full_database.xml
+
+  # DDInter (open, no registration). Provides severity levels
+  # (Major/Moderate/Minor) used for the rule-based baseline.
+  # NOTE: bulk files exist only for these ATC classes; there is no "C" file,
+  # so pairs where BOTH drugs are only ATC-C may be missing (see check_data).
+  ddinter_base_urls:
+    - https://ddinter.scbdd.com/static/media/download/
+    - https://ddinter2.scbdd.com/static/media/download/
+  ddinter_codes: [A, B, D, H, L, P, R, V]
+
+# ---------------------------------------------------------------- Drug–gene
+clinpgx:
+  # ClinPGx is the successor to PharmGKB (PharmGKB + CPIC + PharmCAT).
+  # Script tries each base URL in order.
+  base_urls:
+    - https://api.clinpgx.org/v1/download/file/data/
+    - https://api.pharmgkb.org/v1/download/file/data/
+  files:
+    - relationships.zip
+    - clinicalAnnotations.zip
+    - drugs.zip
+    - genes.zip
+    - variants.zip
+
+# ---------------------------------------------------------------- Cardiac scope
+cardiac_scope:
+  atc_prefixes:
+    B01: Antithrombotic agents (anticoagulants, antiplatelets)
+    C01: Cardiac therapy (antiarrhythmics, glycosides, nitrates)
+    C02: Antihypertensives
+    C03: Diuretics
+    C07: Beta-blockers
+    C08: Calcium channel blockers
+    C09: Renin-angiotensin system agents
+    C10: Lipid-modifying agents (statins)
+
+# ---------------------------------------------------------------- Population
+population:
+  variants_file: config/pgx_variants.csv
+  gnomad_api: https://gnomad.broadinstitute.org/api
+  gnomad_dataset: gnomad_r4
+  ensembl_api: https://rest.ensembl.org
+  # 1000 Genomes populations. STU = Sri Lankan Tamil (most Sri Lanka-specific
+  # public reference available). ITU/GIH/PJL/BEB = other South Asian.
+  # CEU/GBR = European, CHB/JPT = East Asian (populations most CPIC evidence
+  # was derived from).
+  thousand_genomes_pops: [STU, ITU, GIH, PJL, BEB, CEU, GBR, CHB, JPT]
+  request_delay_s: 6   # gnomAD API is rate-limited; keep >= 5
+
+# ---------------------------------------------------------------- FAERS
+faers:
+  base_url: https://fis.fda.gov/content/Exports/
+  # Quarterly ASCII extracts (~70 MB zipped each). Add more quarters later.
+  quarters: [2025q1, 2025q2, 2025q3, 2025q4]
+  keep_tables: [DEMO, DRUG, REAC, OUTC]

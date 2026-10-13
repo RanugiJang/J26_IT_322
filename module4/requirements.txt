@@ -1,0 +1,7 @@
+pandas>=2.1
+numpy>=1.26
+pyyaml>=6.0
+requests>=2.31
+tqdm>=4.66
+# Step 3+ (model) — install later:
+# torch, torch-geometric, scikit-learn, xgboost, networkx
