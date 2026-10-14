@@ -1,0 +1,29 @@
+{
+  "drug_nodes": 1887,
+  "drug_nodes_mapped_to_clinpgx": 1464,
+  "cardiac_drug_nodes": 197,
+  "gene_nodes": 1364,
+  "variant_nodes": 13,
+  "ddi_edges_total": 252057,
+  "ddi_edges_drugbank": 191808,
+  "ddi_edges_ddinter_only": 60249,
+  "ddi_edges_with_cardiac_drug": 69543,
+  "ddi_edges_both_cardiac": 7981,
+  "drug_gene_edges": 6781,
+  "drug_gene_edges_cardiac": 1001,
+  "gene_variant_edges": 0,
+  "cardiac_edge_severity": {
+    "not in DDInter": 47150,
+    "Moderate": 10627,
+    "Unknown": 8928,
+    "Major": 2026,
+    "Minor": 812
+  },
+  "ddinter_names": 1939,
+  "ddinter_names_mapped": 1182,
+  "ddinter_pairs": 160235,
+  "ddinter_pairs_mapped": 86446,
+  "drugbank_edges_with_severity": 25911,
+  "ddinter_only_edges_added": 60249,
+  "build_seconds": 3.5
+}
