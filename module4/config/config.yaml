@@ -72,3 +72,11 @@ faers:
   # Quarterly ASCII extracts (~70 MB zipped each). Add more quarters later.
   quarters: [2025q1, 2025q2, 2025q3, 2025q4]
   keep_tables: [DEMO, DRUG, REAC, OUTC]
+
+# ---------------------------------------------------------------- Step 2: KG
+kg:
+  include_trade_names: true        # lets the demo accept brand names (e.g. Coumadin)
+  min_clinical_level: "3"          # keep ClinPGx evidence 1A-3, drop level 4
+  relationship_associations: [associated]
+  figure_drug: warfarin
+  figure_max_partners: 12

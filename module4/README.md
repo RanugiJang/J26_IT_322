@@ -41,6 +41,27 @@ git commit -m "Module 4: Step 1 data acquisition pipeline"
 git push -u origin feature/module4-ddi-gnn
 ```
 
+## Step 2 — Knowledge graph
+
+```bash
+pip install -r requirements.txt          # adds networkx, matplotlib, pytest
+python -m pytest -q                      # unit tests for drug-name matching
+python -m src.kg.build_kg                # builds the graph -> data/interim/, reports/kg_summary.md
+python -m src.kg.visualize               # slide figure -> reports/figures/kg_warfarin.png
+python -m src.kg.visualize clopidogrel   # any other drug
+```
+
+| Output | Content |
+|--------|---------|
+| `nodes_drug.csv` | DrugBank ID, name, ATC codes, `is_cardiac`, SMILES |
+| `nodes_gene.csv` / `nodes_variant.csv` | Pharmacogenes; PGx variants with gnomAD SAS / STU / NFE / EAS frequencies |
+| `edges_ddi.csv` | Drug–drug edges: mechanism (86 DrugBank types) + DDInter severity |
+| `edges_drug_gene.csv` | Drug–gene edges: PK/PD, best ClinPGx evidence level, phenotype category |
+| `edges_gene_variant.csv` | Gene–variant edges |
+| `name_index.csv` | Name/synonym/brand → DrugBank ID (ambiguous names excluded) |
+
+Design: the GNN trains on the full DrugBank network; every drug is tagged `is_cardiac` (ATC B01, C01–C03, C07–C10) and evaluation/demo focus on edges involving a cardiac drug.
+
 ## Manual actions
 
 1. **DrugBank academic licence** — apply at https://go.drugbank.com/academic_research with your SLIIT email. Academic downloads are currently paused by DrugBank; when they reopen, put `full_database.xml` in `data/raw/drugbank/`. Until then the TDC DrugBank-derived set is the DrugBank source.
@@ -70,8 +91,8 @@ module4/
 
 ## Roadmap
 
-1. **Data acquisition** ← you are here
-2. Entity resolution + cardiac-scoped knowledge graph
+1. Data acquisition ✅
+2. **Entity resolution + knowledge graph** ← you are here
 3. Baselines (DDInter rule lookup, XGBoost on flat features)
 4. GNN + class-imbalance handling
 5. Attention attribution → clinical-language explanations

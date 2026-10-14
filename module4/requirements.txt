@@ -3,5 +3,8 @@ numpy>=1.26
 pyyaml>=6.0
 requests>=2.31
 tqdm>=4.66
-# Step 3+ (model) — install later:
-# torch, torch-geometric, scikit-learn, xgboost, networkx
+networkx>=3.2
+matplotlib>=3.8
+pytest>=8.0
+# Step 3+ (model) — added in later steps:
+# scikit-learn, xgboost, torch, torch-geometric, streamlit
