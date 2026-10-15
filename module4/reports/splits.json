@@ -1,0 +1,36 @@
+{
+  "warm": {
+    "train": {
+      "neg": 228428,
+      "pos": 228429,
+      "cardiac_pairs": 109858
+    },
+    "val": {
+      "neg": 28378,
+      "pos": 28380,
+      "cardiac_pairs": 13511
+    },
+    "test": {
+      "neg": 28653,
+      "pos": 28653,
+      "cardiac_pairs": 13881
+    }
+  },
+  "cold": {
+    "train": {
+      "neg": 184416,
+      "pos": 184618,
+      "cardiac_pairs": 91451
+    },
+    "val": {
+      "neg": 46921,
+      "pos": 46965,
+      "cardiac_pairs": 24469
+    },
+    "test": {
+      "neg": 53874,
+      "pos": 53879,
+      "cardiac_pairs": 27182
+    }
+  }
+}

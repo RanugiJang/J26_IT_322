@@ -62,6 +62,22 @@ python -m src.kg.visualize clopidogrel   # any other drug
 
 Design: the GNN trains on the full DrugBank network; every drug is tagged `is_cardiac` (ATC B01, C01–C03, C07–C10) and evaluation/demo focus on edges involving a cardiac drug.
 
+## Step 3 — Splits + baselines
+
+```bash
+pip install -r requirements.txt          # adds scikit-learn, xgboost, rdkit
+python -m pytest -q                      # 11 tests: name matching, split leakage, feature symmetry
+python -m src.kg.build_kg                # rebuild graph with improved drug matching
+python -m src.model.splits               # labelled pairs, warm + cold splits
+python -m src.model.features             # drug feature vectors
+python -m src.model.baselines            # DDInter lookup + XGBoost -> reports/baselines.md
+```
+
+- **Matching fixes:** bracket qualifiers, salt/ester suffixes, space/hyphen-insensitive names, manual synonyms (`config/drug_synonyms.csv`), and ClinPGx drugs without a DrugBank ID kept as `PGKB:<id>` (e.g. ticagrelor). Remaining gaps → `reports/missing_cardiac_drugs.csv`.
+- **Negatives:** one drug of each positive pair swapped for a random drug (degree-balanced); never a documented interaction.
+- **Warm split:** random pairs held out (standard benchmark). **Cold split:** whole drugs held out, cardiac and non-cardiac stratified — test drugs never appear in training.
+- **Baselines:** B1 DDInter lookup (current practice), B2 XGBoost on chemical fingerprint + ATC + pharmacogene features. Metrics: AUROC, AUPRC, sensitivity, specificity, precision, F1 — for all pairs and cardiac pairs.
+
 ## Manual actions
 
 1. **DrugBank academic licence** — apply at https://go.drugbank.com/academic_research with your SLIIT email. Academic downloads are currently paused by DrugBank; when they reopen, put `full_database.xml` in `data/raw/drugbank/`. Until then the TDC DrugBank-derived set is the DrugBank source.
@@ -92,8 +108,8 @@ module4/
 ## Roadmap
 
 1. Data acquisition ✅
-2. **Entity resolution + knowledge graph** ← you are here
-3. Baselines (DDInter rule lookup, XGBoost on flat features)
+2. Entity resolution + knowledge graph ✅
+3. **Splits + baselines (DDInter lookup, XGBoost)** ← you are here
 4. GNN + class-imbalance handling
 5. Attention attribution → clinical-language explanations
 6. FAERS cross-check + population transferability
