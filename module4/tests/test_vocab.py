@@ -1,8 +1,8 @@
 """Unit tests for drug-name resolution (run: python -m pytest -q)."""
 import pandas as pd
 
-from src.kg.vocab import (build_vocab, is_cardiac, lookup, normalize_name, parse_atc,
-                          parse_drugbank_id, split_list, strip_salt)
+from src.kg.vocab import (build_vocab, compact, drop_brackets, is_cardiac, lookup, normalize_name,
+                          parse_atc, parse_drugbank_id, split_list, strip_salt)
 
 
 def test_parse_drugbank_id():
@@ -22,39 +22,59 @@ def test_split_list_quoted_and_plain():
     assert split_list(float("nan")) == []
 
 
-def test_normalize_and_salt():
+def test_normalisation_tiers():
     assert normalize_name('  "Amlodipine  Besylate" ') == "amlodipine besylate"
+    assert drop_brackets("Doxepin (topical)") == "doxepin"
     assert strip_salt("Metoprolol Succinate") == "metoprolol"
-    assert strip_salt("Clopidogrel") == "clopidogrel"
+    assert strip_salt("Fluticasone propionate") == "fluticasone"
+    assert compact("Ethinyl estradiol") == compact("ethinylestradiol")
 
 
 def test_is_cardiac():
     assert is_cardiac(["B01AA03"], ["B01", "C07"])
-    assert not is_cardiac(["N02BE01"], ["B01", "C07"])
+    assert not is_cardiac(["N02BA01"], ["B01", "C07"])
 
 
-def _vocab():
-    df = pd.DataFrame([
-        {"PharmGKB Accession Id": "PA451906", "Name": "warfarin", "Generic Names": '"Warfarin sodium"',
-         "Trade Names": '"Coumadin"', "Cross-references": "DrugBank:DB00682", "ATC Identifiers": "B01AA03"},
-        {"PharmGKB Accession Id": "PA449053", "Name": "clopidogrel", "Generic Names": "",
-         "Trade Names": '"Plavix"', "Cross-references": "DrugBank:DB00758", "ATC Identifiers": "B01AC04"},
-        {"PharmGKB Accession Id": "PA448497", "Name": "aspirin", "Generic Names": "",
-         "Trade Names": '"Shared"', "Cross-references": "DrugBank:DB00945", "ATC Identifiers": "N02BA01"},
-        {"PharmGKB Accession Id": "PA1", "Name": "otherdrug", "Generic Names": "",
-         "Trade Names": '"Shared"', "Cross-references": "DrugBank:DB99999", "ATC Identifiers": ""},
-        {"PharmGKB Accession Id": "PA2", "Name": "no-drugbank", "Generic Names": "",
-         "Trade Names": "", "Cross-references": "PubChem Compound:1", "ATC Identifiers": ""},
-    ])
-    return build_vocab(df, ["B01", "C"])
+ROW = dict.fromkeys(["PharmGKB Accession Id", "Name", "Generic Names", "Trade Names",
+                     "Cross-references", "ATC Identifiers"], "")
 
 
-def test_build_vocab_and_lookup():
-    vocab, index = _vocab()
-    assert len(vocab) == 4                                   # record without DrugBank ID dropped
-    assert set(vocab.loc[vocab.is_cardiac, "drugbank_id"]) == {"DB00682", "DB00758"}
-    assert lookup("Warfarin", index) == "DB00682"
-    assert lookup("COUMADIN", index) == "DB00682"            # trade name
-    assert lookup("warfarin sodium", index) == "DB00682"     # generic name
-    assert lookup("Clopidogrel bisulfate", index) is None or lookup("Clopidogrel bisulfate", index) == "DB00758"
-    assert lookup("Shared", index) is None                   # ambiguous names never resolve
+def _vocab(synonyms=None):
+    recs = [
+        ("PA451906", "warfarin", '"Warfarin sodium"', '"Coumadin"', "DrugBank:DB00682", "B01AA03"),
+        ("PA449053", "clopidogrel", "", '"Plavix"', "DrugBank:DB00758", "B01AC04"),
+        ("PA448497", "aspirin", "", '"Shared"', "DrugBank:DB00945", "B01AC06, N02BA01"),
+        ("PA1", "otherdrug", "", '"Shared"', "DrugBank:DB99999", ""),
+        ("PA166114461", "ticagrelor", "", '"Brilinta"', "PubChem Compound:9871419", "B01AC24"),
+        ("PA2", "warfarin", "", "", "", ""),                     # duplicate name without DrugBank ID
+        ("PA3", "ethinyl estradiol", "", "", "DrugBank:DB00977", "G03CA01"),
+    ]
+    df = pd.DataFrame([{**ROW, "PharmGKB Accession Id": a, "Name": n, "Generic Names": g,
+                        "Trade Names": t, "Cross-references": x, "ATC Identifiers": c}
+                       for a, n, g, t, x, c in recs])
+    return build_vocab(df, ["B01", "C"], synonyms=synonyms)
+
+
+def test_vocab_keys_and_cardiac_flag():
+    vocab, _ = _vocab()
+    assert "PGKB:PA166114461" in set(vocab.drugbank_id)          # ticagrelor kept without DrugBank ID
+    cardiac = set(vocab.loc[vocab.is_cardiac, "drugbank_id"])
+    assert {"DB00682", "DB00758", "DB00945", "PGKB:PA166114461"} <= cardiac
+
+
+def test_lookup_tiers():
+    _, index = _vocab()
+    assert lookup("Warfarin", index) == "DB00682"                # DrugBank ID wins over PGKB duplicate
+    assert lookup("COUMADIN", index) == "DB00682"                # trade name
+    assert lookup("warfarin sodium", index) == "DB00682"         # generic name
+    assert lookup("Warfarin (oral)", index) == "DB00682"         # bracket qualifier
+    assert lookup("Ticagrelor", index) == "PGKB:PA166114461"     # ClinPGx-only drug
+    assert lookup("ethinylestradiol", index) == "DB00977"        # spaces ignored
+    assert lookup("Shared", index) is None                       # ambiguous names never resolve
+    assert lookup("", index) is None
+
+
+def test_manual_synonyms():
+    syn = pd.DataFrame({"alias": ["acetylsalicylic acid"], "canonical": ["aspirin"]})
+    _, index = _vocab(syn)
+    assert lookup("Acetylsalicylic acid", index) == "DB00945"

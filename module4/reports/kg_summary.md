@@ -3,47 +3,47 @@
 ## Nodes
 | Type | Count |
 |---|---|
-| Drug | 1,887 (197 cardiac) |
-| Gene | 1,364 |
+| Drug | 2,132 (207 cardiac) |
+| Gene | 1,440 |
 | Variant (PGx) | 13 |
 
 ## Edges
 | Type | Count |
 |---|---|
 | Drug–drug (DrugBank, 86 mechanisms) | 191,808 |
-| Drug–drug (DDInter only, severity) | 60,249 |
-| — involving a cardiac drug | 69,543 |
-| — both drugs cardiac | 7,981 |
-| Drug–gene (ClinPGx) | 6,781 (1,001 cardiac) |
+| Drug–drug (DDInter only, severity) | 94,060 |
+| — involving a cardiac drug | 75,166 |
+| — both drugs cardiac | 8,256 |
+| Drug–gene (ClinPGx) | 7,270 (1,052 cardiac) |
 | Gene–variant | 0 |
 
 ## Entity resolution
-- Drug nodes matched to ClinPGx: 1,464 / 1,887
-- DDInter drug names matched: 1,182 / 1,939
-- DrugBank edges with DDInter severity: 25,911
+- Drug nodes matched to ClinPGx: 1,709 / 2,132
+- DDInter drug names matched: 1,589 / 1,939
+- DrugBank edges with DDInter severity: 27,032
 
 ## Cardiac interaction severity
 | Severity | Edges |
 |---|---|
-| not in DDInter | 47,150 |
-| Moderate | 10,627 |
-| Unknown | 8,928 |
-| Major | 2,026 |
-| Minor | 812 |
+| not in DDInter | 46,943 |
+| Moderate | 14,424 |
+| Unknown | 9,014 |
+| Major | 3,816 |
+| Minor | 969 |
 
 ## Most-connected cardiac drugs
 | Drug | Interactions |
 |---|---|
-| amiodarone | 926 |
-| warfarin | 920 |
-| diltiazem | 895 |
-| verapamil | 854 |
-| metoprolol | 847 |
-| ticlopidine | 798 |
-| isradipine | 797 |
-| simvastatin | 783 |
-| lidocaine | 781 |
-| lovastatin | 781 |
+| amiodarone | 1,002 |
+| warfarin | 1,001 |
+| diltiazem | 955 |
+| verapamil | 913 |
+| metoprolol | 875 |
+| simvastatin | 861 |
+| lidocaine | 839 |
+| ticlopidine | 837 |
+| isradipine | 829 |
+| lovastatin | 828 |
 
 ## Most common mechanisms (cardiac edges)
 | Mechanism | Edges |

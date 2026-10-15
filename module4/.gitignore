@@ -1,4 +1,6 @@
 /data/
 /.venv/
+/models/
 __pycache__/
 *.part
+.pytest_cache/

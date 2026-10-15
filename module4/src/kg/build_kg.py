@@ -47,9 +47,13 @@ def load_vocab(cfg: dict) -> tuple[pd.DataFrame, dict[str, str]]:
     raw = ROOT / cfg["paths"]["raw"]
     drugs = pd.read_csv(raw / "clinpgx/drugs/drugs.tsv", sep="\t", dtype=str)
     prefixes = list(cfg["cardiac_scope"]["atc_prefixes"].keys())
-    vocab, index = build_vocab(drugs, prefixes, cfg["kg"]["include_trade_names"])
-    log(f"ClinPGx drugs: {len(drugs):,} records -> {len(vocab):,} with a DrugBank ID "
-        f"({int(vocab.is_cardiac.sum())} cardiac by ATC)")
+    syn_path = ROOT / cfg["kg"]["synonyms_file"]
+    synonyms = pd.read_csv(syn_path) if syn_path.exists() else None
+    vocab, index = build_vocab(drugs, prefixes, cfg["kg"]["include_trade_names"], synonyms)
+    n_db = int((vocab.id_source == "drugbank").sum())
+    log(f"ClinPGx drugs: {len(drugs):,} records -> {len(vocab):,} drugs "
+        f"({n_db:,} with a DrugBank ID, {len(vocab) - n_db:,} ClinPGx-only; "
+        f"{int(vocab.is_cardiac.sum())} cardiac by ATC)")
     log(f"name index: {len(index):,} unambiguous names/synonyms")
     return vocab, index
 
@@ -180,7 +184,7 @@ def load_drug_gene(vocab: pd.DataFrame, index: dict[str, str], cfg: dict) -> tup
     edges = r.merge(c, on=["drugbank_id", "gene_symbol"], how="outer") if not c.empty else r
     for col, default in (("pk", False), ("pd", False), ("pmid_count", 0), ("n_annotations", 0)):
         if col in edges:
-            edges[col] = edges[col].fillna(default)
+            edges[col] = edges[col].astype(object).where(edges[col].notna(), default).infer_objects()
     return edges, genes
 
 
@@ -222,7 +226,7 @@ def main() -> None:
     ids = pd.Index(pd.concat([ddi.drug1, ddi.drug2]).unique(), name="drugbank_id")
     nodes = pd.DataFrame(index=ids).reset_index().merge(vocab, on="drugbank_id", how="left")
     nodes = nodes.merge(smiles_table(cfg), on="drugbank_id", how="left")
-    nodes["is_cardiac"] = nodes["is_cardiac"].fillna(False).astype(bool)
+    nodes["is_cardiac"] = nodes["is_cardiac"].astype("boolean").fillna(False).astype(bool)
     nodes["in_clinpgx"] = nodes["pharmgkb_id"].notna()
     nodes["name"] = nodes["name"].fillna(nodes["drugbank_id"])
 
@@ -248,6 +252,11 @@ def main() -> None:
     pd.DataFrame(sorted(index.items()), columns=["name_normalized", "drugbank_id"]).to_csv(
         out / "name_index.csv", index=False)
 
+    # audit: cardiac drugs known to ClinPGx but with no interaction edge in the graph
+    missing = vocab[vocab.is_cardiac & ~vocab.drugbank_id.isin(ids)][["drugbank_id", "name", "atc_codes"]]
+    missing.to_csv(path(f"{cfg['paths']['reports']}/missing_cardiac_drugs.csv"), index=False)
+    log(f"audit: {len(missing)} cardiac drugs have no interaction edge -> reports/missing_cardiac_drugs.csv")
+
     # ---------------------------------------------------------------- stats
     name_of = dict(zip(nodes.drugbank_id, nodes.name))
     deg = pd.concat([cardiac_edges.drug1, cardiac_edges.drug2]).value_counts()
@@ -259,6 +268,8 @@ def main() -> None:
     stats = {
         "drug_nodes": int(len(nodes)),
         "drug_nodes_mapped_to_clinpgx": int(nodes.in_clinpgx.sum()),
+        "drug_nodes_clinpgx_only_id": int(nodes.drugbank_id.str.startswith("PGKB:").sum()),
+        "cardiac_drugs_missing": int(len(missing)),
         "cardiac_drug_nodes": int(nodes.is_cardiac.sum()),
         "gene_nodes": int(len(gene_nodes)),
         "variant_nodes": int(len(var)),

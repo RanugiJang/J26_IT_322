@@ -1,0 +1,31 @@
+drugbank_id,name,atc_codes
+DB01225,enoxaparin,B01AB05
+DB01388,mibefradil,C08CX01
+DB04825,prenylamine,C01DX02
+DB04880,enoximone,C01CE03
+DB06271,sulodexide,B01AB11
+DB06727,sparteine,C01BA04
+DB11783,imidapril,C09AA16
+DB13136,fluindione,B01AA12
+DB13715,dilazep,C01DX10
+DB15456,vericiguat,C01DX22
+PGKB:PA131053734,ketanserin,C02KD01
+PGKB:PA164924561,celiprolol,C07AB08
+PGKB:PA166159961,alirocumab,C10AX14
+PGKB:PA166160027,evolocumab,C10AX13
+PGKB:PA166175998,dextromethorphan / quinidine,C01BA51;N07XX59
+PGKB:PA166176017,hydralazine / isosorbide dinitrate,C01DA58
+PGKB:PA166183785,amlodipine / atorvastatin / perindopril arginine,C10BX11
+PGKB:PA166184057,bisoprolol fumarate / perindopril arginine,C09BX02
+PGKB:PA166184081,nicorandil,C01DX16
+PGKB:PA166184233,vernakalant,C01BG11
+PGKB:PA166184495,ezetimibe / simvastatin,C10BA02
+PGKB:PA166184498,ezetimibe / rosuvastatin,C10BA06
+PGKB:PA166187141,lacidipine,C08CA09
+PGKB:PA166222281,evinacumab,C10AX17
+PGKB:PA166248881,fenofibrate / simvastatin,C10BA04
+PGKB:PA166268802,inclisiran,C10AX16
+PGKB:PA166272922,mavacamten,C01EB24
+PGKB:PA166353821,bempedoic acid / ezetimibe,C10BA10
+PGKB:PA166360341,acoramidis,C01EB25
+PGKB:PA450702,omega-3 polyunsaturated fatty acids,C10AX06
