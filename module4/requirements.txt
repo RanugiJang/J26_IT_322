@@ -9,4 +9,6 @@ pytest>=8.0
 scikit-learn>=1.4
 xgboost>=2.0
 rdkit>=2023.9
-# Step 4+ (added later): torch, torch-geometric, streamlit
+torch>=2.2
+torch_geometric>=2.5
+# Step 6 (added later): streamlit
