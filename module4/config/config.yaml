@@ -98,3 +98,23 @@ baselines:
   max_train_rows: 200000      # cap for laptop memory/speed
   gb_params: {n_estimators: 400, max_depth: 8, learning_rate: 0.1, subsample: 0.8, colsample_bytree: 0.5}
   threshold: 0.5
+
+# ---------------------------------------------------------------- Step 4: GNN
+gnn:
+  seed: 42
+  hidden: 128
+  heads: 4
+  layers: 2
+  edge_dim: 16
+  dropout: 0.2
+  lr: 0.002
+  weight_decay: 0.00001
+  steps: 600              # max training steps (early stopping usually ends sooner)
+  target_frac: 0.25       # share of training interactions hidden each step and predicted
+  neg_per_pos: 1
+  eval_every: 25
+  patience: 8             # validation checks without improvement before stopping
+  mech_weight: 0.5        # weight of the mechanism-type loss
+  cold_drug_frac: {warm: 0.0, cold: 0.15}   # share of drugs whose links are hidden each step (simulates new drugs)
+  mc_samples: 20          # Monte-Carlo dropout passes for confidence (demo)
+  threads: 0              # 0 = use all CPU cores
