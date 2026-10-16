@@ -1,0 +1,97 @@
+{
+  "model_name": "Smoking Stage Detection Model",
+  "features": [
+    "Age",
+    "Gender",
+    "BMI",
+    "Cigarettes_Per_Day_Current"
+  ],
+  "classes": [
+    "Action_Reducing_Some_Days",
+    "Former_Smoker_Quit",
+    "Maintenance_Current_Daily",
+    "Never_Smoked"
+  ],
+  "logistic_regression_accuracy": 0.6317249029395452,
+  "logistic_regression_f1": 0.6498436565282275,
+  "random_forest_accuracy": 0.6333887964503605,
+  "random_forest_f1": 0.654707655633393,
+  "logistic_regression_report": {
+    "Action_Reducing_Some_Days": {
+      "precision": 0.19753086419753085,
+      "recall": 0.3333333333333333,
+      "f1-score": 0.24806201550387597,
+      "support": 48.0
+    },
+    "Former_Smoker_Quit": {
+      "precision": 0.36427320490367776,
+      "recall": 0.5060827250608273,
+      "f1-score": 0.42362525458248473,
+      "support": 411.0
+    },
+    "Maintenance_Current_Daily": {
+      "precision": 0.8863636363636364,
+      "recall": 0.6157894736842106,
+      "f1-score": 0.7267080745341615,
+      "support": 190.0
+    },
+    "Never_Smoked": {
+      "precision": 0.7831207065750736,
+      "recall": 0.6915077989601387,
+      "f1-score": 0.7344684767602393,
+      "support": 1154.0
+    },
+    "accuracy": 0.6317249029395452,
+    "macro avg": {
+      "precision": 0.5578221030099797,
+      "recall": 0.5366783327596274,
+      "f1-score": 0.5332159553451904,
+      "support": 1803.0
+    },
+    "weighted avg": {
+      "precision": 0.6829329755926893,
+      "recall": 0.6317249029395452,
+      "f1-score": 0.6498436565282275,
+      "support": 1803.0
+    }
+  },
+  "random_forest_report": {
+    "Action_Reducing_Some_Days": {
+      "precision": 0.47761194029850745,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.5565217391304348,
+      "support": 48.0
+    },
+    "Former_Smoker_Quit": {
+      "precision": 0.35422740524781343,
+      "recall": 0.5912408759124088,
+      "f1-score": 0.4430264357338195,
+      "support": 411.0
+    },
+    "Maintenance_Current_Daily": {
+      "precision": 0.9341317365269461,
+      "recall": 0.8210526315789474,
+      "f1-score": 0.8739495798319328,
+      "support": 190.0
+    },
+    "Never_Smoked": {
+      "precision": 0.8052095130237825,
+      "recall": 0.6161178509532063,
+      "f1-score": 0.6980854197349042,
+      "support": 1154.0
+    },
+    "accuracy": 0.6333887964503605,
+    "macro avg": {
+      "precision": 0.6427951487742624,
+      "recall": 0.6737695062778072,
+      "f1-score": 0.6428957936077728,
+      "support": 1803.0
+    },
+    "weighted avg": {
+      "precision": 0.7072710175600357,
+      "recall": 0.6333887964503605,
+      "f1-score": 0.654707655633393,
+      "support": 1803.0
+    }
+  }
+}

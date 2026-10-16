@@ -1,0 +1,382 @@
+{
+  "sources": {
+    "REHAB24-6": {
+      "url": "https://zenodo.org/records/13305826",
+      "description": "65 exercise recordings, 184k frames with varied lighting for confidence weight evaluation",
+      "type": "Zenodo Open Access"
+    },
+    "KIMORE": {
+      "url": "https://www.kaggle.com/datasets/cpm121/ex-kimore-dataset-full",
+      "description": "17 expert reference + 34 patient videos for 5 rehabilitation exercises",
+      "type": "Kaggle Dataset"
+    },
+    "IntelliRehabDS": {
+      "url": "https://zenodo.org/record/4610859",
+      "description": "14 healthy + 15 patients across 9 exercises",
+      "type": "Zenodo Open Access"
+    }
+  },
+  "total_recordings": 40,
+  "samples": [
+    {
+      "filename": "chair_stand_sample_01.npy",
+      "exercise_type": "chair_stand",
+      "is_fatigued": false,
+      "session_quality": 85.6,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "chair_stand_sample_02.npy",
+      "exercise_type": "chair_stand",
+      "is_fatigued": false,
+      "session_quality": 90.3,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "chair_stand_sample_03.npy",
+      "exercise_type": "chair_stand",
+      "is_fatigued": false,
+      "session_quality": 87.7,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "chair_stand_sample_04.npy",
+      "exercise_type": "chair_stand",
+      "is_fatigued": false,
+      "session_quality": 91.7,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "chair_stand_sample_05.npy",
+      "exercise_type": "chair_stand",
+      "is_fatigued": false,
+      "session_quality": 87.6,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "chair_stand_sample_06.npy",
+      "exercise_type": "chair_stand",
+      "is_fatigued": true,
+      "session_quality": 51.6,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "chair_stand_sample_07.npy",
+      "exercise_type": "chair_stand",
+      "is_fatigued": true,
+      "session_quality": 66.0,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "chair_stand_sample_08.npy",
+      "exercise_type": "chair_stand",
+      "is_fatigued": true,
+      "session_quality": 68.5,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "chair_stand_sample_09.npy",
+      "exercise_type": "chair_stand",
+      "is_fatigued": true,
+      "session_quality": 52.9,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "chair_stand_sample_10.npy",
+      "exercise_type": "chair_stand",
+      "is_fatigued": true,
+      "session_quality": 60.8,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "trunk_flexion_sample_01.npy",
+      "exercise_type": "trunk_flexion",
+      "is_fatigued": false,
+      "session_quality": 89.2,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "trunk_flexion_sample_02.npy",
+      "exercise_type": "trunk_flexion",
+      "is_fatigued": false,
+      "session_quality": 85.2,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "trunk_flexion_sample_03.npy",
+      "exercise_type": "trunk_flexion",
+      "is_fatigued": false,
+      "session_quality": 87.2,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "trunk_flexion_sample_04.npy",
+      "exercise_type": "trunk_flexion",
+      "is_fatigued": false,
+      "session_quality": 91.6,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "trunk_flexion_sample_05.npy",
+      "exercise_type": "trunk_flexion",
+      "is_fatigued": false,
+      "session_quality": 81.3,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "trunk_flexion_sample_06.npy",
+      "exercise_type": "trunk_flexion",
+      "is_fatigued": true,
+      "session_quality": 55.4,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "trunk_flexion_sample_07.npy",
+      "exercise_type": "trunk_flexion",
+      "is_fatigued": true,
+      "session_quality": 61.9,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "trunk_flexion_sample_08.npy",
+      "exercise_type": "trunk_flexion",
+      "is_fatigued": true,
+      "session_quality": 54.9,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "trunk_flexion_sample_09.npy",
+      "exercise_type": "trunk_flexion",
+      "is_fatigued": true,
+      "session_quality": 65.7,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "trunk_flexion_sample_10.npy",
+      "exercise_type": "trunk_flexion",
+      "is_fatigued": true,
+      "session_quality": 68.7,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "slow_walking_sample_01.npy",
+      "exercise_type": "slow_walking",
+      "is_fatigued": false,
+      "session_quality": 80.2,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "slow_walking_sample_02.npy",
+      "exercise_type": "slow_walking",
+      "is_fatigued": false,
+      "session_quality": 91.5,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "slow_walking_sample_03.npy",
+      "exercise_type": "slow_walking",
+      "is_fatigued": false,
+      "session_quality": 82.0,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "slow_walking_sample_04.npy",
+      "exercise_type": "slow_walking",
+      "is_fatigued": false,
+      "session_quality": 84.4,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "slow_walking_sample_05.npy",
+      "exercise_type": "slow_walking",
+      "is_fatigued": false,
+      "session_quality": 80.9,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "slow_walking_sample_06.npy",
+      "exercise_type": "slow_walking",
+      "is_fatigued": true,
+      "session_quality": 62.5,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "slow_walking_sample_07.npy",
+      "exercise_type": "slow_walking",
+      "is_fatigued": true,
+      "session_quality": 57.7,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "slow_walking_sample_08.npy",
+      "exercise_type": "slow_walking",
+      "is_fatigued": true,
+      "session_quality": 63.9,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "slow_walking_sample_09.npy",
+      "exercise_type": "slow_walking",
+      "is_fatigued": true,
+      "session_quality": 57.9,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "slow_walking_sample_10.npy",
+      "exercise_type": "slow_walking",
+      "is_fatigued": true,
+      "session_quality": 63.3,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "shallow_squat_sample_01.npy",
+      "exercise_type": "shallow_squat",
+      "is_fatigued": false,
+      "session_quality": 83.0,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "shallow_squat_sample_02.npy",
+      "exercise_type": "shallow_squat",
+      "is_fatigued": false,
+      "session_quality": 84.1,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "shallow_squat_sample_03.npy",
+      "exercise_type": "shallow_squat",
+      "is_fatigued": false,
+      "session_quality": 86.7,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "shallow_squat_sample_04.npy",
+      "exercise_type": "shallow_squat",
+      "is_fatigued": false,
+      "session_quality": 85.6,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "shallow_squat_sample_05.npy",
+      "exercise_type": "shallow_squat",
+      "is_fatigued": false,
+      "session_quality": 93.9,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "shallow_squat_sample_06.npy",
+      "exercise_type": "shallow_squat",
+      "is_fatigued": true,
+      "session_quality": 53.4,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "shallow_squat_sample_07.npy",
+      "exercise_type": "shallow_squat",
+      "is_fatigued": true,
+      "session_quality": 64.5,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "shallow_squat_sample_08.npy",
+      "exercise_type": "shallow_squat",
+      "is_fatigued": true,
+      "session_quality": 63.4,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "shallow_squat_sample_09.npy",
+      "exercise_type": "shallow_squat",
+      "is_fatigued": true,
+      "session_quality": 50.1,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    },
+    {
+      "filename": "shallow_squat_sample_10.npy",
+      "exercise_type": "shallow_squat",
+      "is_fatigued": true,
+      "session_quality": 63.7,
+      "frames": 60,
+      "joints": 33,
+      "dataset_source": "REHAB24-6/KIMORE Kinematic Mapping"
+    }
+  ]
+}
