@@ -101,11 +101,49 @@ class CVDLifestyleCoachEngine:
             p1 = xgb_m.predict_proba(df_in)[0]
             p2 = lgb_m.predict_proba(df_in)[0]
             domain_probs = 0.5 * p1 + 0.5 * p2
-            classes = self.ranking_pkg['classes']
+            classes = list(self.ranking_pkg['classes'])
         else:
             # Fallback uniform
             domain_probs = np.array([0.3, 0.25, 0.2, 0.15, 0.1])
             classes = ['Diet', 'Exercise', 'Sleep', 'Smoking', 'Stress']
+
+        # CLINICAL SAFETY CONSTRAINT: Non-smokers must NEVER receive a smoking cessation priority
+        cigs = patient_profile.get('Cigarettes_Per_Day', 0)
+        smoke_stat = patient_profile.get('Smoking_Status', 0)
+        if cigs == 0 and smoke_stat == 0:
+            for idx, cls_name in enumerate(classes):
+                if cls_name == 'Smoking':
+                    domain_probs[idx] = 0.0
+
+        # CLINICAL WEIGHT ADJUSTMENT based on acute patient biomarkers:
+        sleep_hours = patient_profile.get('Sleep_Hours', 7.0)
+        stress_score = patient_profile.get('Stress_Score', 5.0)
+        sitting_hours = patient_profile.get('Sitting_Hours', 6.0)
+
+        for idx, cls_name in enumerate(classes):
+            if cls_name == 'Sleep':
+                if sleep_hours < 5.0:
+                    domain_probs[idx] *= 1.8  # Critical sleep deficit
+                elif sleep_hours >= 7.0:
+                    domain_probs[idx] *= 0.3  # Healthy sleep baseline
+            elif cls_name == 'Stress':
+                if stress_score >= 8.0:
+                    domain_probs[idx] *= 1.6  # Severe sympathetic strain
+                elif stress_score <= 4.0:
+                    domain_probs[idx] *= 0.4
+            elif cls_name == 'Exercise':
+                if sitting_hours >= 8.0:
+                    domain_probs[idx] *= 1.6  # High sedentary sitting risk — urgent intervention
+                elif sitting_hours <= 3.0:
+                    domain_probs[idx] *= 0.35  # Patient is already active (low sitting) — deprioritize exercise over sleep/diet/smoking
+            elif cls_name == 'Smoking':
+                if cigs >= 6:
+                    domain_probs[idx] *= 1.7  # Heavy active smoking
+
+        # Renormalize probabilities
+        total_p = np.sum(domain_probs)
+        if total_p > 0:
+            domain_probs = domain_probs / total_p
 
         # Sort top domains
         sorted_indices = np.argsort(domain_probs)[::-1]

@@ -47,19 +47,36 @@ class ExerciseDomain:
 
     def get_recommendation(self, patient_profile, current_minutes=None):
         prescription = self.prescriber.prescribe(patient_profile)
+        sitting_hours = patient_profile.get('Sitting_Hours', patient_profile.get('sitting_hours', 8.0))
         duration = current_minutes if current_minutes else prescription['recommended_duration_min']
 
-        return {
-            "domain": "Exercise",
-            "priority_action": f"{prescription['exercise_type']} for {duration} minutes",
-            "target_duration_min": duration,
-            "target_intensity": prescription['intensity_level'],
-            "reference_videos": self.CARDIAC_REHAB_VIDEOS,
-            "form_instructions": [
+        # CLINICAL RULE: If patient sits <= 3.5 hours/day, they are already on their feet moving all day.
+        # Prescribing beginner flat walking is redundant; shift to functional pre-sternotomy strength & venous return.
+        if sitting_hours <= 3.5:
+            exercise_name = "Supported Chair Sit-to-Stand & Sternal Prehab"
+            intensity_val = "Low-Moderate Functional Resistance"
+            instructions = [
+                "Exhale smoothly while standing up; NEVER hold your breath (Valsalva spikes arterial pressure)",
+                "Keep feet shoulder-width apart and knees tracking directly over mid-toes without inward collapse",
+                "Controlled 3-second descent back to chair without dropping (eccentric quadriceps loading)"
+            ]
+        else:
+            exercise_name = prescription['exercise_type']
+            intensity_val = prescription['intensity_level']
+            instructions = [
                 "Keep torso upright and shoulders relaxed (avoids chest compression)",
                 "Breathe continuously — NEVER hold your breath (Valsalva maneuver spikes arterial pressure)",
                 "Land softly heel-to-toe to minimize joint impact"
-            ],
+            ]
+
+        return {
+            "domain": "Exercise",
+            "priority_action": f"{exercise_name} for {duration} minutes",
+            "exercise_type": exercise_name,
+            "target_duration_min": duration,
+            "target_intensity": intensity_val,
+            "reference_videos": self.CARDIAC_REHAB_VIDEOS,
+            "form_instructions": instructions,
             "cardiac_warning": prescription['cardiac_safety_rules'][0]
         }
 
