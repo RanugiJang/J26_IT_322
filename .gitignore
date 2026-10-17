@@ -4,3 +4,7 @@ __pycache__/
 .DS_Store
 explainable-cvd-risk-prediction/data/
 explainable-cvd-risk-prediction/outputs/
+*.db
+*.sqlite
+backend/uploads/
+backend/models/
