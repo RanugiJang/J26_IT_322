@@ -8,3 +8,4 @@ module1/outputs/
 *.sqlite
 backend/uploads/
 backend/models/
+.pytest_cache/
