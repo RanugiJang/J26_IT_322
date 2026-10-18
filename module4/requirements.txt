@@ -11,4 +11,4 @@ xgboost>=2.0
 rdkit>=2023.9
 torch>=2.2
 torch_geometric>=2.5
-# Step 6 (added later): streamlit
+streamlit>=1.46        # Step 6 demo
