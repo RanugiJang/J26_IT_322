@@ -4,9 +4,8 @@ __pycache__/
 .DS_Store
 module1/data/
 module1/outputs/
-explainable-cvd-risk-prediction/data/
-explainable-cvd-risk-prediction/outputs/
 *.db
 *.sqlite
 backend/uploads/
 backend/models/
+.pytest_cache/
