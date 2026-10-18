@@ -2,6 +2,8 @@ venv/
 __pycache__/
 .ipynb_checkpoints/
 .DS_Store
+module1/data/
+module1/outputs/
 explainable-cvd-risk-prediction/data/
 explainable-cvd-risk-prediction/outputs/
 *.db
