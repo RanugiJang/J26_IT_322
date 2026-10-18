@@ -1,0 +1,691 @@
+[
+  {
+    "case": {
+      "title": "Anticoagulant + antiplatelet",
+      "current": [
+        "warfarin"
+      ],
+      "new": "aspirin",
+      "genotypes": {
+        "CYP2C9": "*1/*3",
+        "VKORC1": "-1639G>A"
+      }
+    },
+    "result": {
+      "overall_level": "High",
+      "drugs": [
+        "Warfarin",
+        "Aspirin"
+      ],
+      "unknown": [],
+      "pairs": [
+        {
+          "a": "DB00682",
+          "b": "DB00945",
+          "name_a": "Warfarin",
+          "name_b": "Aspirin",
+          "risk": 1.0,
+          "uncertainty": 0.0,
+          "level": "High",
+          "level_source": "DDInter (curated severity)",
+          "documented": "DrugBank + DDInter",
+          "severity": "Major",
+          "mechanism": "Aspirin may increase the anticoagulant activities of Warfarin.",
+          "mechanism_source": "DrugBank (documented)",
+          "mechanism_confidence": 1.0,
+          "shared_genes": [
+            "CYP4F2"
+          ],
+          "attention_evidence": [
+            "Warfarin \u2190 Ridogrel (which also interacts with Aspirin) [attention 5.6\u00d7 average]",
+            "Warfarin \u2190 Modafinil (which also interacts with Aspirin) [attention 5.1\u00d7 average]",
+            "Warfarin \u2190 Sulfinpyrazone (which also interacts with Aspirin) [attention 4.9\u00d7 average]",
+            "Aspirin \u2190 Ridogrel (which also interacts with Warfarin) [attention 6.8\u00d7 average]",
+            "Aspirin \u2190 Milrinone (which also interacts with Warfarin) [attention 4.9\u00d7 average]",
+            "Aspirin \u2190 Carisoprodol (which also interacts with Warfarin) [attention 4.8\u00d7 average]"
+          ],
+          "alternatives": [
+            {
+              "drug": "Cilostazol",
+              "id": "DB01166",
+              "worst_risk": 0.998,
+              "worst_level": "Low",
+              "atc": "B01AC23"
+            },
+            {
+              "drug": "Ticagrelor",
+              "id": "PGKB:PA165374673",
+              "worst_risk": 0.982,
+              "worst_level": "Moderate",
+              "atc": "B01AC24"
+            }
+          ],
+          "model_used": "warm",
+          "replace": "Aspirin"
+        }
+      ],
+      "pgx": [
+        {
+          "drug": "Warfarin",
+          "gene": "CYP2C9",
+          "variant": "CYP2C9 *3 (rs1057910)",
+          "status": "patient carries this variant",
+          "effect": "strongly reduced warfarin clearance -> bleeding risk",
+          "frequencies": {
+            "South Asian": 0.114125932062966,
+            "Sri Lankan Tamil": 0.096938775510204,
+            "European": 0.0662166931356979
+          },
+          "severity": "High"
+        },
+        {
+          "drug": "Warfarin",
+          "gene": "CYP4F2",
+          "variant": "CYP4F2 *3 (rs2108622)",
+          "status": "genotype not provided \u2014 consider testing",
+          "effect": "modestly higher warfarin dose requirement",
+          "frequencies": {
+            "South Asian": 0.401039501039501,
+            "Sri Lankan Tamil": 0.423469387755102,
+            "European": 0.2862754906865197
+          },
+          "severity": "Info"
+        },
+        {
+          "drug": "Warfarin",
+          "gene": "VKORC1",
+          "variant": "VKORC1 -1639G>A (rs9923231)",
+          "status": "patient carries this variant",
+          "effect": "increased warfarin sensitivity -> lower dose needed",
+          "frequencies": {
+            "South Asian": 0.1780679933665008,
+            "Sri Lankan Tamil": 0.1071428571428571,
+            "European": 0.3779160415379637
+          },
+          "severity": "High"
+        }
+      ],
+      "n_flagged": 1,
+      "elapsed_ms": 8.5
+    }
+  },
+  {
+    "case": {
+      "title": "Anticoagulant + antiarrhythmic",
+      "current": [
+        "warfarin"
+      ],
+      "new": "amiodarone",
+      "genotypes": null
+    },
+    "result": {
+      "overall_level": "High",
+      "drugs": [
+        "Warfarin",
+        "Amiodarone"
+      ],
+      "unknown": [],
+      "pairs": [
+        {
+          "a": "DB00682",
+          "b": "DB01118",
+          "name_a": "Warfarin",
+          "name_b": "Amiodarone",
+          "risk": 0.999,
+          "uncertainty": 0.001,
+          "level": "High",
+          "level_source": "DDInter (curated severity)",
+          "documented": "DrugBank + DDInter",
+          "severity": "Major",
+          "mechanism": "Amiodarone may increase the anticoagulant activities of Warfarin.",
+          "mechanism_source": "DrugBank (documented)",
+          "mechanism_confidence": 1.0,
+          "shared_genes": [],
+          "attention_evidence": [
+            "Warfarin \u2190 Modafinil (which also interacts with Amiodarone) [attention 5.1\u00d7 average]",
+            "Warfarin \u2190 Sulfinpyrazone (which also interacts with Amiodarone) [attention 4.9\u00d7 average]",
+            "Warfarin \u2190 Pyrimethamine (which also interacts with Amiodarone) [attention 4.3\u00d7 average]",
+            "Amiodarone \u2190 Procainamide (which also interacts with Warfarin) [attention 7.0\u00d7 average]",
+            "Amiodarone \u2190 Hydroxyzine (which also interacts with Warfarin) [attention 6.2\u00d7 average]",
+            "Amiodarone \u2190 Formoterol (which also interacts with Warfarin) [attention 6.2\u00d7 average]"
+          ],
+          "alternatives": [
+            {
+              "drug": "Ibutilide",
+              "id": "DB00308",
+              "worst_risk": 0.191,
+              "worst_level": "Low",
+              "atc": "C01BD05"
+            },
+            {
+              "drug": "Dofetilide",
+              "id": "DB00204",
+              "worst_risk": 0.656,
+              "worst_level": "Moderate",
+              "atc": "C01BD04"
+            }
+          ],
+          "model_used": "warm",
+          "replace": "Amiodarone"
+        }
+      ],
+      "pgx": [
+        {
+          "drug": "Warfarin",
+          "gene": "CYP2C9",
+          "variant": "CYP2C9 *2 (rs1799853)",
+          "status": "genotype not provided \u2014 consider testing",
+          "effect": "reduced warfarin clearance -> bleeding risk at standard dose",
+          "frequencies": {
+            "South Asian": 0.0387966804979253,
+            "Sri Lankan Tamil": 0.0255102040816326,
+            "European": 0.1266066649019089
+          },
+          "severity": "Info"
+        },
+        {
+          "drug": "Warfarin",
+          "gene": "CYP2C9",
+          "variant": "CYP2C9 *3 (rs1057910)",
+          "status": "genotype not provided \u2014 consider testing",
+          "effect": "strongly reduced warfarin clearance -> bleeding risk",
+          "frequencies": {
+            "South Asian": 0.114125932062966,
+            "Sri Lankan Tamil": 0.096938775510204,
+            "European": 0.0662166931356979
+          },
+          "severity": "Info"
+        },
+        {
+          "drug": "Warfarin",
+          "gene": "CYP4F2",
+          "variant": "CYP4F2 *3 (rs2108622)",
+          "status": "genotype not provided \u2014 consider testing",
+          "effect": "modestly higher warfarin dose requirement",
+          "frequencies": {
+            "South Asian": 0.401039501039501,
+            "Sri Lankan Tamil": 0.423469387755102,
+            "European": 0.2862754906865197
+          },
+          "severity": "Info"
+        },
+        {
+          "drug": "Warfarin",
+          "gene": "VKORC1",
+          "variant": "VKORC1 -1639G>A (rs9923231)",
+          "status": "genotype not provided \u2014 consider testing",
+          "effect": "increased warfarin sensitivity -> lower dose needed",
+          "frequencies": {
+            "South Asian": 0.1780679933665008,
+            "Sri Lankan Tamil": 0.1071428571428571,
+            "European": 0.3779160415379637
+          },
+          "severity": "Info"
+        }
+      ],
+      "n_flagged": 1,
+      "elapsed_ms": 7.2
+    }
+  },
+  {
+    "case": {
+      "title": "Antiarrhythmic + cardiac glycoside",
+      "current": [
+        "digoxin"
+      ],
+      "new": "amiodarone",
+      "genotypes": null
+    },
+    "result": {
+      "overall_level": "High",
+      "drugs": [
+        "Digoxin",
+        "Amiodarone"
+      ],
+      "unknown": [],
+      "pairs": [
+        {
+          "a": "DB00390",
+          "b": "DB01118",
+          "name_a": "Digoxin",
+          "name_b": "Amiodarone",
+          "risk": 0.984,
+          "uncertainty": 0.022,
+          "level": "High",
+          "level_source": "model-estimated",
+          "documented": "DrugBank",
+          "severity": null,
+          "mechanism": "The serum concentration of Digoxin can be increased when it is combined with Amiodarone.",
+          "mechanism_source": "DrugBank (documented)",
+          "mechanism_confidence": 1.0,
+          "shared_genes": [
+            "NOS1AP"
+          ],
+          "attention_evidence": [
+            "Digoxin \u2190 Telithromycin (which also interacts with Amiodarone) [attention 6.6\u00d7 average]",
+            "Digoxin \u2190 Ketoconazole (which also interacts with Amiodarone) [attention 6.4\u00d7 average]",
+            "Digoxin \u2190 Voriconazole (which also interacts with Amiodarone) [attention 6.3\u00d7 average]",
+            "Amiodarone \u2190 Formoterol (which also interacts with Digoxin) [attention 6.2\u00d7 average]",
+            "Amiodarone \u2190 Flecainide (which also interacts with Digoxin) [attention 5.9\u00d7 average]",
+            "Amiodarone \u2190 Moxifloxacin (which also interacts with Digoxin) [attention 5.9\u00d7 average]"
+          ],
+          "alternatives": [
+            {
+              "drug": "Dronedarone",
+              "id": "PGKB:PA153619853",
+              "worst_risk": 0.579,
+              "worst_level": "Low",
+              "atc": "C01BD07"
+            },
+            {
+              "drug": "Dofetilide",
+              "id": "DB00204",
+              "worst_risk": 0.929,
+              "worst_level": "Moderate",
+              "atc": "C01BD04"
+            }
+          ],
+          "model_used": "warm",
+          "replace": "Amiodarone"
+        }
+      ],
+      "pgx": [],
+      "n_flagged": 1,
+      "elapsed_ms": 5.3
+    }
+  },
+  {
+    "case": {
+      "title": "Antiplatelet + proton-pump inhibitor (CYP2C19)",
+      "current": [
+        "clopidogrel"
+      ],
+      "new": "omeprazole",
+      "genotypes": {
+        "CYP2C19": "*2/*2"
+      }
+    },
+    "result": {
+      "overall_level": "High",
+      "drugs": [
+        "Clopidogrel",
+        "Omeprazole"
+      ],
+      "unknown": [],
+      "pairs": [
+        {
+          "a": "DB00758",
+          "b": "DB00338",
+          "name_a": "Clopidogrel",
+          "name_b": "Omeprazole",
+          "risk": 1.0,
+          "uncertainty": 0.001,
+          "level": "High",
+          "level_source": "DDInter (curated severity)",
+          "documented": "DrugBank + DDInter",
+          "severity": "Major",
+          "mechanism": "Clopidogrel may decrease the antiplatelet activities of Omeprazole.",
+          "mechanism_source": "DrugBank (documented)",
+          "mechanism_confidence": 1.0,
+          "shared_genes": [
+            "ABCB1",
+            "CYP2C19"
+          ],
+          "attention_evidence": [
+            "Clopidogrel \u2190 Dextromethorphan (which also interacts with Omeprazole) [attention 4.9\u00d7 average]",
+            "Clopidogrel \u2190 Telaprevir (which also interacts with Omeprazole) [attention 3.5\u00d7 average]",
+            "Clopidogrel \u2190 Darunavir (which also interacts with Omeprazole) [attention 3.4\u00d7 average]",
+            "Omeprazole \u2190 Dextromethorphan (which also interacts with Clopidogrel) [attention 5.0\u00d7 average]",
+            "Omeprazole \u2190 Methadone (which also interacts with Clopidogrel) [attention 4.7\u00d7 average]",
+            "Omeprazole \u2190 Donepezil (which also interacts with Clopidogrel) [attention 4.6\u00d7 average]"
+          ],
+          "alternatives": [
+            {
+              "drug": "Dexlansoprazole",
+              "id": "PGKB:PA166110257",
+              "worst_risk": 0.87,
+              "worst_level": "Low",
+              "atc": "A02BC06"
+            },
+            {
+              "drug": "Pantoprazole",
+              "id": "DB00213",
+              "worst_risk": 0.999,
+              "worst_level": "Moderate",
+              "atc": "A02BC02"
+            }
+          ],
+          "model_used": "warm",
+          "replace": "Omeprazole"
+        }
+      ],
+      "pgx": [
+        {
+          "drug": "Clopidogrel",
+          "gene": "CYP2C19",
+          "variant": "CYP2C19 *2 (rs4244285)",
+          "status": "patient carries this variant",
+          "effect": "loss of function -> reduced clopidogrel activation",
+          "frequencies": {
+            "South Asian": 0.3322175732217573,
+            "Sri Lankan Tamil": 0.423469387755102,
+            "European": 0.1479506143736924
+          },
+          "severity": "High"
+        }
+      ],
+      "n_flagged": 1,
+      "elapsed_ms": 5.8
+    }
+  },
+  {
+    "case": {
+      "title": "Statin + macrolide antibiotic",
+      "current": [
+        "simvastatin"
+      ],
+      "new": "clarithromycin",
+      "genotypes": null
+    },
+    "result": {
+      "overall_level": "High",
+      "drugs": [
+        "Simvastatin",
+        "Clarithromycin"
+      ],
+      "unknown": [],
+      "pairs": [
+        {
+          "a": "DB00641",
+          "b": "DB01211",
+          "name_a": "Simvastatin",
+          "name_b": "Clarithromycin",
+          "risk": 1.0,
+          "uncertainty": 0.0,
+          "level": "High",
+          "level_source": "DDInter (curated severity)",
+          "documented": "DrugBank + DDInter",
+          "severity": "Major",
+          "mechanism": "The serum concentration of Simvastatin can be increased when it is combined with Clarithromycin.",
+          "mechanism_source": "DrugBank (documented)",
+          "mechanism_confidence": 1.0,
+          "shared_genes": [],
+          "attention_evidence": [
+            "Simvastatin \u2190 Amrinone (which also interacts with Clarithromycin) [attention 5.3\u00d7 average]",
+            "Simvastatin \u2190 Methadone (which also interacts with Clarithromycin) [attention 5.1\u00d7 average]",
+            "Simvastatin \u2190 Cocaine (which also interacts with Clarithromycin) [attention 3.8\u00d7 average]",
+            "Clarithromycin \u2190 Granisetron (which also interacts with Simvastatin) [attention 7.5\u00d7 average]",
+            "Clarithromycin \u2190 Moxifloxacin (which also interacts with Simvastatin) [attention 6.0\u00d7 average]",
+            "Clarithromycin \u2190 Flecainide (which also interacts with Simvastatin) [attention 5.4\u00d7 average]"
+          ],
+          "alternatives": [
+            {
+              "drug": "Dirithromycin",
+              "id": "DB00954",
+              "worst_risk": 0.01,
+              "worst_level": "Low",
+              "atc": "J01FA13"
+            },
+            {
+              "drug": "Roxithromycin",
+              "id": "DB00778",
+              "worst_risk": 0.815,
+              "worst_level": "Moderate",
+              "atc": "J01FA06"
+            }
+          ],
+          "model_used": "warm",
+          "replace": "Clarithromycin"
+        }
+      ],
+      "pgx": [
+        {
+          "drug": "Simvastatin",
+          "gene": "SLCO1B1",
+          "variant": "SLCO1B1 c.521T>C (rs4149056)",
+          "status": "genotype not provided \u2014 consider testing",
+          "effect": "reduced hepatic uptake -> statin myopathy risk",
+          "frequencies": {
+            "South Asian": 0.048714759535655,
+            "Sri Lankan Tamil": 0.0408163265306122,
+            "European": 0.1587479038569033
+          },
+          "severity": "Info"
+        }
+      ],
+      "n_flagged": 1,
+      "elapsed_ms": 6.7
+    }
+  },
+  {
+    "case": {
+      "title": "Beta-blocker + calcium-channel blocker",
+      "current": [
+        "metoprolol"
+      ],
+      "new": "verapamil",
+      "genotypes": null
+    },
+    "result": {
+      "overall_level": "Moderate",
+      "drugs": [
+        "Metoprolol",
+        "Verapamil"
+      ],
+      "unknown": [],
+      "pairs": [
+        {
+          "a": "DB00264",
+          "b": "DB00661",
+          "name_a": "Metoprolol",
+          "name_b": "Verapamil",
+          "risk": 1.0,
+          "uncertainty": 0.0,
+          "level": "Moderate",
+          "level_source": "model-estimated",
+          "documented": "DrugBank",
+          "severity": null,
+          "mechanism": "The serum concentration of Metoprolol can be increased when it is combined with Verapamil.",
+          "mechanism_source": "DrugBank (documented)",
+          "mechanism_confidence": 1.0,
+          "shared_genes": [
+            "GRK4"
+          ],
+          "attention_evidence": [
+            "Metoprolol \u2190 Trabectedin (which also interacts with Verapamil) [attention 5.6\u00d7 average]",
+            "Metoprolol \u2190 Amprenavir (which also interacts with Verapamil) [attention 4.7\u00d7 average]",
+            "Metoprolol \u2190 Methoxyflurane (which also interacts with Verapamil) [attention 4.5\u00d7 average]",
+            "Verapamil \u2190 Tioconazole (which also interacts with Metoprolol) [attention 5.2\u00d7 average]",
+            "Verapamil \u2190 Imiquimod (which also interacts with Metoprolol) [attention 4.1\u00d7 average]",
+            "Verapamil \u2190 Donepezil (which also interacts with Metoprolol) [attention 3.9\u00d7 average]"
+          ],
+          "alternatives": [],
+          "model_used": "warm",
+          "replace": "Verapamil"
+        }
+      ],
+      "pgx": [
+        {
+          "drug": "Metoprolol",
+          "gene": "CYP2D6",
+          "variant": "CYP2D6 *4 (rs3892097)",
+          "status": "genotype not provided \u2014 consider testing",
+          "effect": "non-functional -> higher beta-blocker exposure",
+          "frequencies": {
+            "South Asian": 0.1073980664144598,
+            "Sri Lankan Tamil": 0.1134020618556701,
+            "European": 0.1986274860069072
+          },
+          "severity": "Info"
+        },
+        {
+          "drug": "Metoprolol",
+          "gene": "CYP2D6",
+          "variant": "CYP2D6 *10 (rs1065852)",
+          "status": "genotype not provided \u2014 consider testing",
+          "effect": "reduced function (common in Asian populations)",
+          "frequencies": {
+            "South Asian": 0.1665966386554621,
+            "Sri Lankan Tamil": 0.1530612244897959,
+            "European": 0.2225675635674747
+          },
+          "severity": "Info"
+        }
+      ],
+      "n_flagged": 1,
+      "elapsed_ms": 6.4
+    }
+  },
+  {
+    "case": {
+      "title": "Polypharmacy: statin + CCB + new antiplatelet",
+      "current": [
+        "atorvastatin",
+        "amlodipine"
+      ],
+      "new": "ticagrelor",
+      "genotypes": null
+    },
+    "result": {
+      "overall_level": "Moderate",
+      "drugs": [
+        "Atorvastatin",
+        "Amlodipine",
+        "Ticagrelor"
+      ],
+      "unknown": [],
+      "pairs": [
+        {
+          "a": "DB01076",
+          "b": "DB00381",
+          "name_a": "Atorvastatin",
+          "name_b": "Amlodipine",
+          "risk": 0.981,
+          "uncertainty": 0.017,
+          "level": "Moderate",
+          "level_source": "model-estimated",
+          "documented": "DrugBank",
+          "severity": null,
+          "mechanism": "The risk or severity of adverse effects can be increased when Atorvastatin is combined with Amlodipine.",
+          "mechanism_source": "DrugBank (documented)",
+          "mechanism_confidence": 1.0,
+          "shared_genes": [
+            "CYP3A5",
+            "ACE"
+          ],
+          "attention_evidence": [
+            "Atorvastatin \u2190 Tioconazole (which also interacts with Amlodipine) [attention 4.6\u00d7 average]",
+            "Atorvastatin \u2190 Amiodarone (which also interacts with Amlodipine) [attention 4.4\u00d7 average]",
+            "Atorvastatin \u2190 Bifonazole (which also interacts with Amlodipine) [attention 4.2\u00d7 average]",
+            "Amlodipine \u2190 Itraconazole (which also interacts with Atorvastatin) [attention 4.3\u00d7 average]",
+            "Amlodipine \u2190 Posaconazole (which also interacts with Atorvastatin) [attention 4.0\u00d7 average]",
+            "Amlodipine \u2190 Bortezomib (which also interacts with Atorvastatin) [attention 4.0\u00d7 average]"
+          ],
+          "alternatives": [],
+          "model_used": "warm",
+          "replace": "Amlodipine"
+        },
+        {
+          "a": "DB01076",
+          "b": "PGKB:PA165374673",
+          "name_a": "Atorvastatin",
+          "name_b": "Ticagrelor",
+          "risk": 0.9,
+          "uncertainty": 0.065,
+          "level": "Low",
+          "level_source": "DDInter (curated severity)",
+          "documented": "DDInter",
+          "severity": "Minor",
+          "mechanism": "The risk or severity of adverse effects can be increased when Atorvastatin is combined with Ticagrelor.",
+          "mechanism_source": "model-predicted mechanism type",
+          "mechanism_confidence": 0.833,
+          "shared_genes": [
+            "CYP3A4",
+            "SLCO1B1"
+          ],
+          "attention_evidence": [
+            "Atorvastatin \u2190 Amiodarone (which also interacts with Ticagrelor) [attention 4.4\u00d7 average]",
+            "Atorvastatin \u2190 Lurasidone (which also interacts with Ticagrelor) [attention 3.1\u00d7 average]",
+            "Atorvastatin \u2190 Nisoldipine (which also interacts with Ticagrelor) [attention 2.2\u00d7 average]",
+            "Ticagrelor \u2190 Secobarbital (which also interacts with Atorvastatin) [attention 2.3\u00d7 average]",
+            "Ticagrelor \u2190 Bepridil (which also interacts with Atorvastatin) [attention 2.1\u00d7 average]",
+            "Ticagrelor \u2190 Isradipine (which also interacts with Atorvastatin) [attention 1.9\u00d7 average]"
+          ],
+          "alternatives": [],
+          "model_used": "warm",
+          "replace": null
+        },
+        {
+          "a": "DB00381",
+          "b": "PGKB:PA165374673",
+          "name_a": "Amlodipine",
+          "name_b": "Ticagrelor",
+          "risk": 0.893,
+          "uncertainty": 0.043,
+          "level": "Low",
+          "level_source": "DDInter (curated severity)",
+          "documented": "DDInter",
+          "severity": "Minor",
+          "mechanism": "The risk or severity of adverse effects can be increased when Ticagrelor is combined with Amlodipine.",
+          "mechanism_source": "model-predicted mechanism type",
+          "mechanism_confidence": 0.475,
+          "shared_genes": [],
+          "attention_evidence": [
+            "Amlodipine \u2190 Itraconazole (which also interacts with Ticagrelor) [attention 4.3\u00d7 average]",
+            "Amlodipine \u2190 Posaconazole (which also interacts with Ticagrelor) [attention 4.0\u00d7 average]",
+            "Amlodipine \u2190 Ketoconazole (which also interacts with Ticagrelor) [attention 3.9\u00d7 average]",
+            "Ticagrelor \u2190 gene ATP binding cassette subfamily B member 1, shared with Amlodipine [attention 2.6\u00d7 average]",
+            "Ticagrelor \u2190 Methylphenobarbital (which also interacts with Amlodipine) [attention 2.5\u00d7 average]",
+            "Ticagrelor \u2190 Secobarbital (which also interacts with Amlodipine) [attention 2.3\u00d7 average]"
+          ],
+          "alternatives": [],
+          "model_used": "warm",
+          "replace": null
+        }
+      ],
+      "pgx": [
+        {
+          "drug": "Atorvastatin",
+          "gene": "CYP3A5",
+          "variant": "CYP3A5 *3 (rs776746)",
+          "status": "genotype not provided \u2014 consider testing",
+          "effect": "non-expresser",
+          "frequencies": {
+            "South Asian": 0.6995022812111157,
+            "Sri Lankan Tamil": 0.6632653061224489,
+            "European": 0.93107857835788
+          },
+          "severity": "Info"
+        },
+        {
+          "drug": "Atorvastatin",
+          "gene": "SLCO1B1",
+          "variant": "SLCO1B1 c.521T>C (rs4149056)",
+          "status": "genotype not provided \u2014 consider testing",
+          "effect": "reduced hepatic uptake -> statin myopathy risk",
+          "frequencies": {
+            "South Asian": 0.048714759535655,
+            "Sri Lankan Tamil": 0.0408163265306122,
+            "European": 0.1587479038569033
+          },
+          "severity": "Info"
+        },
+        {
+          "drug": "Amlodipine",
+          "gene": "CYP3A5",
+          "variant": "CYP3A5 *3 (rs776746)",
+          "status": "genotype not provided \u2014 consider testing",
+          "effect": "non-expresser",
+          "frequencies": {
+            "South Asian": 0.6995022812111157,
+            "Sri Lankan Tamil": 0.6632653061224489,
+            "European": 0.93107857835788
+          },
+          "severity": "Info"
+        }
+      ],
+      "n_flagged": 1,
+      "elapsed_ms": 16.6
+    }
+  }
+]

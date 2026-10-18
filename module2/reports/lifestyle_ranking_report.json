@@ -1,0 +1,121 @@
+{
+  "model_name": "Lifestyle Priority Ranking Ensemble (XGBoost + LightGBM)",
+  "features": [
+    "Age",
+    "Gender",
+    "BMI",
+    "Predicted_Risk_Score",
+    "Moderate_Activity_Min",
+    "Vigorous_Activity_Min",
+    "Sitting_Time_Min",
+    "Sleep_Hours",
+    "Smoking_Status",
+    "Sodium_mg",
+    "Total_Fat_g",
+    "Sugar_g",
+    "Calories",
+    "Stress_Score"
+  ],
+  "classes": [
+    "Diet",
+    "Exercise",
+    "Sleep",
+    "Smoking",
+    "Stress"
+  ],
+  "xgb_test_accuracy": 0.9534700315457413,
+  "lgb_test_accuracy": 0.9613564668769716,
+  "ensemble_test_accuracy": 0.9574132492113565,
+  "ensemble_f1_weighted": 0.9532335225954552,
+  "cv_5fold_xgb": [
+    0.9566246056782335,
+    0.9503154574132492,
+    0.9534333070244673,
+    0.9494869771112865,
+    0.9644830307813733
+  ],
+  "cv_5fold_lgb": [
+    0.9660883280757098,
+    0.9629337539432177,
+    0.9652722967640095,
+    0.9636937647987371,
+    0.9676400947119179
+  ],
+  "classification_report": {
+    "Diet": {
+      "precision": 0.9538300104931794,
+      "recall": 0.9945295404814004,
+      "f1-score": 0.9737546866630958,
+      "support": 914.0
+    },
+    "Exercise": {
+      "precision": 0.95,
+      "recall": 0.5428571428571428,
+      "f1-score": 0.6909090909090909,
+      "support": 70.0
+    },
+    "Sleep": {
+      "precision": 0.9489795918367347,
+      "recall": 0.9393939393939394,
+      "f1-score": 0.9441624365482234,
+      "support": 99.0
+    },
+    "Smoking": {
+      "precision": 0.9871794871794872,
+      "recall": 1.0,
+      "f1-score": 0.9935483870967742,
+      "support": 154.0
+    },
+    "Stress": {
+      "precision": 0.9523809523809523,
+      "recall": 0.6451612903225806,
+      "f1-score": 0.7692307692307693,
+      "support": 31.0
+    },
+    "accuracy": 0.9574132492113565,
+    "macro avg": {
+      "precision": 0.9584740083780707,
+      "recall": 0.8243883826110127,
+      "f1-score": 0.8743210740895908,
+      "support": 1268.0
+    },
+    "weighted avg": {
+      "precision": 0.9572547789684965,
+      "recall": 0.9574132492113565,
+      "f1-score": 0.9532335225954552,
+      "support": 1268.0
+    }
+  },
+  "feature_importances_xgb": {
+    "Age": 0.012665732763707638,
+    "Gender": 0.0034174276515841484,
+    "BMI": 0.004901741165667772,
+    "Predicted_Risk_Score": 0.015057413838803768,
+    "Moderate_Activity_Min": 0.06247559189796448,
+    "Vigorous_Activity_Min": 0.10316435247659683,
+    "Sitting_Time_Min": 0.031892575323581696,
+    "Sleep_Hours": 0.177956685423851,
+    "Smoking_Status": 0.288982629776001,
+    "Sodium_mg": 0.047967009246349335,
+    "Total_Fat_g": 0.04001854360103607,
+    "Sugar_g": 0.02546137012541294,
+    "Calories": 0.09538953006267548,
+    "Stress_Score": 0.09064939618110657
+  },
+  "feature_importances_lgb": {
+    "Age": 42.0,
+    "Gender": 3.0,
+    "BMI": 62.0,
+    "Predicted_Risk_Score": 59.0,
+    "Moderate_Activity_Min": 144.0,
+    "Vigorous_Activity_Min": 238.0,
+    "Sitting_Time_Min": 246.0,
+    "Sleep_Hours": 497.0,
+    "Smoking_Status": 443.0,
+    "Sodium_mg": 338.0,
+    "Total_Fat_g": 250.0,
+    "Sugar_g": 291.0,
+    "Calories": 331.0,
+    "Stress_Score": 310.0
+  }
+}

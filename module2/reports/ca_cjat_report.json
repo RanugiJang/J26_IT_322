@@ -1,0 +1,18 @@
+{
+  "model": "CA-CJAT (Confidence-Aware Clinical Joint Attention Transformer)",
+  "novelty_statement": "Novel unified architecture combining confidence-weighted training, clinically-guided attention, fatigue-state estimation, and multi-granularity output for cardiovascular exercise quality assessment.",
+  "input_dimensions": "33 MediaPipe pose landmarks (x, y, z, confidence)",
+  "final_training_loss": 7.658613681793213,
+  "eval_metrics": {
+    "weighted_rep_loss": 1.3884515762329102,
+    "set_loss": 1.1066702604293823,
+    "session_loss": 93.893798828125,
+    "fatigue_loss": 0.042884357273578644
+  },
+  "clinical_attention_bias": "Bias matrix B focuses attention preferentially on heart-critical joints (knees, hips, trunk)",
+  "feedback_granularities": [
+    "Rep-level posture correction",
+    "Set-level fatigue pacing",
+    "Session-level quality %"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "model": "Random Forest Cardiac Exercise Prescriber",
+  "dataset": "module2/data/Exercise_Prescription.xlsx",
+  "n_samples": 6337,
+  "accuracy": 0.9976340694006309,
+  "features": [
+    "Age",
+    "Gender",
+    "BMI",
+    "Predicted_Risk_Score",
+    "Sitting_Time_Min",
+    "Moderate_Activity_Min"
+  ],
+  "classes": [
+    "Brisk Walking / Stationary Cycling | 15m | Low-Moderate (50% HRR)",
+    "Continuous Walking & Mild Resistance | 20m | Moderate (50-60% HRR)",
+    "Flat Ground Slow Walking | 10m | Low (40-50% HRR)",
+    "Seated Chair Aerobics & Gentle Mobility | 5m | Very Low (<40% HRR)"
+  ],
+  "feature_importances": {
+    "Age": 0.23034554344416713,
+    "Gender": 0.005188376997965578,
+    "BMI": 0.2171360295315451,
+    "Predicted_Risk_Score": 0.44761255869387256,
+    "Sitting_Time_Min": 0.09134750262497193,
+    "Moderate_Activity_Min": 0.008369988707477778
+  }
+}

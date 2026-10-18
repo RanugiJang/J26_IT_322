@@ -78,6 +78,30 @@ python -m src.model.baselines            # DDInter lookup + XGBoost -> reports/b
 - **Warm split:** random pairs held out (standard benchmark). **Cold split:** whole drugs held out, cardiac and non-cardiac stratified — test drugs never appear in training.
 - **Baselines:** B1 DDInter lookup (current practice), B2 XGBoost on chemical fingerprint + ATC + pharmacogene features. Metrics: AUROC, AUPRC, sensitivity, specificity, precision, F1 — for all pairs and cardiac pairs.
 
+## Step 4 — GNN (graph attention network)
+
+```bash
+pip install -r requirements.txt          # adds torch, torch_geometric
+python -m pytest -q                      # 13 tests (adds GNN symmetry + no-leakage tests)
+python -m src.model.train_gnn            # warm + cold, ~10–25 min on a laptop CPU
+```
+
+- **Graph:** drugs (features from Step 3b) + genes + PGx variants (population frequencies). Drug–drug message edges typed by DrugBank mechanism (86 types, + DDInter-only); drug–gene edges typed PK/other.
+- **Model:** 2 × GATv2 layers (4 heads, 128-d) with learned edge-type vectors in the attention; symmetric link head (does A interact with B?) + directional mechanism head (86 classes).
+- **No leakage:** only training interactions are message edges; each step hides 25% of them and predicts those. In the cold setting test drugs have no interaction edges at all.
+- **Confidence:** Monte-Carlo dropout (`mc_samples`) → mean risk ± spread, used by the demo.
+- **Outputs:** `reports/model_comparison.md`, `reports/figures/roc_comparison.png`, `reports/figures/gnn_training.png`, `models/gnn_<setting>.pt`.
+
+## Step 5 — Explanations + safer alternatives + pharmacogenomics
+
+```bash
+python -m pytest -q                                        # 17 tests
+python -m src.explain.check --examples                     # 7 cardiac cases -> reports/explanation_examples.md
+python -m src.explain.check --current warfarin amiodarone --new aspirin --genotype CYP2C9=*1/*3 VKORC1=-1639G>A
+```
+
+For every drug pair: interaction probability ± confidence, risk level (DDInter severity if curated, else model-estimated from score + predicted mechanism), plain-language mechanism (DrugBank text or model-predicted type), shared pharmacogenes, graph-attention evidence (neighbours linking the two drugs listed first), and safer alternatives from the same ATC class ranked by worst predicted risk against the rest of the list. Pharmacogenomic alerts use the patient genotype when given (carrier → High), otherwise suggest testing and show South Asian / Sri Lankan Tamil / European allele frequencies. Embeddings and attention are computed once at start-up, so each check takes milliseconds.
+
 ## Manual actions
 
 1. **DrugBank academic licence** — apply at https://go.drugbank.com/academic_research with your SLIIT email. Academic downloads are currently paused by DrugBank; when they reopen, put `full_database.xml` in `data/raw/drugbank/`. Until then the TDC DrugBank-derived set is the DrugBank source.
@@ -109,8 +133,8 @@ module4/
 
 1. Data acquisition ✅
 2. Entity resolution + knowledge graph ✅
-3. **Splits + baselines (DDInter lookup, XGBoost)** ← you are here
-4. GNN + class-imbalance handling
-5. Attention attribution → clinical-language explanations
+3. Splits + baselines (DDInter lookup, XGBoost) ✅
+4. GNN (GATv2) + mechanism head + MC-dropout confidence ✅
+5. **Attention-based explanations + safer alternative + PGx alerts** ← you are here
 6. FAERS cross-check + population transferability
 7. Shared Patient Profile integration
