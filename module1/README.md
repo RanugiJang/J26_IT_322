@@ -101,19 +101,62 @@ profile = predict_patient(m, {"age": 60, "male": 1, "sysBP": 165, ...}, patient_
 
 ---
 
-## Results (Framingham test set, n = 848)
+## Results
 
-| Model | AUC-ROC (95% CI) | Brier | Calibration error |
+### 1. Risk prediction vs clinical baseline – Framingham test set (n = 848) · notebooks 01, 08
+
+| Model | Test AUC (95% CI) | 5-fold CV AUC | Brier | Calibration error |
+|---|---|---|---|---|
+| Framingham Risk Score (office, clinical standard) | 0.702 (0.653–0.747) | 0.717 ± 0.016 | – | – |
+| Logistic regression (calibrated) | 0.696 (0.648–0.741) | 0.726 ± 0.019 | 0.120 | 0.017 |
+| XGBoost (uncalibrated) | 0.679 (0.627–0.728) | 0.705 ± 0.022 | 0.194 | 0.236 |
+| **XGBoost + Platt (used)** | **0.679 (0.627–0.728)** | 0.705 ± 0.022 | **0.121** | **0.015** |
+
+- No model is significantly better than the Framingham Risk Score (paired bootstrap: XGBoost − FRS = −0.023, 95% CI −0.052 to +0.006).
+  Module 1's contribution is therefore **explanation, uncertainty and similar-patient evidence at FRS-level accuracy**, not higher AUC.
+- Platt scaling cut calibration error from 0.236 → 0.015: predicted percentages now match observed event rates.
+- The proposal target (AUC ≥ 0.85) is not reachable on this dataset; recorded in the decision log.
+
+### 2. Federated learning – UCI Heart Disease, 4 hospitals · notebook 02
+
+| Hospital | Local only | Centralised (all data pooled) | **Federated (FedAvg)** |
 |---|---|---|---|
-| Logistic regression (calibrated) | 0.696 (0.645–0.743) | 0.120 | 0.017 |
-| XGBoost (uncalibrated) | 0.679 (0.628–0.730) | 0.195 | 0.236 |
-| **XGBoost + Platt (used)** | **0.679 (0.628–0.730)** | **0.121** | **0.015** |
+| Cleveland | 0.892 | 0.896 | **0.897** |
+| Hungary | 0.912 | 0.890 | **0.890** |
+| Switzerland* | 0.457 | 0.371 | **0.400** |
+| VA | 0.723 | 0.785 | **0.785** |
+| All (combined test) | – | 0.880 | **0.881** |
 
-- Platt scaling cut calibration error from 0.236 → 0.015: risk percentages now match observed rates.
-- About **59%** of the model's risk explanation comes from **modifiable** factors (notebook 10).
-- AUC ≈ 0.68–0.70 is typical for the Framingham dataset; the proposal target (≥ 0.85) was not reached and is recorded in the decision log.
+- Federated AUC (0.881) matches centralised (0.880) **without sharing patient data** between hospitals.
+- Smaller hospitals gain most (VA +0.062 vs training alone).
+- \*Switzerland has only 2 healthy patients in its test set, so its AUC is unreliable and excluded from averages.
 
-<!-- TODO: add key numbers from notebooks 02, 03, 05, 07, 08, 09 -->
+### 3. Explainability and uncertainty · notebooks 03, 05, 10
+
+| Component | Result |
+|---|---|
+| GAT patient-similarity graph | AUC 0.688 (logistic regression 0.696) – similar accuracy, but adds **similar-patient evidence** (e.g. "4 of 5 similar past patients developed CHD") |
+| MC Dropout uncertainty | Low-uncertainty patients: **85%** correct · High-uncertainty: **31%** correct → the flag identifies predictions a clinician should double-check |
+| Fixed vs modifiable factors | **59%** of the risk explanation comes from factors the patient can change |
+
+### 4. Risk trend over time – Framingham longitudinal (3 exams) · notebook 07
+
+- Patients whose trend was **increasing** had a 25.9% CVD rate vs 9.8% for **stable** patients.
+- Trend classifier balanced accuracy **0.64** (always guessing "stable" gives 0.33 balanced).
+- Adding exam history: AUC gain +0.025 (95% CI −0.004 to +0.059) – promising but not yet significant.
+
+### 5. Ablation – what each component adds · notebook 09
+
+| Component | Metric | With | Without | Change |
+|---|---|---|---|---|
+| Platt calibration | Brier (lower = better) | 0.121 | 0.194 | **−0.073** |
+| Patient-similarity graph (GAT) | AUC | 0.688 | 0.696 | −0.008 |
+| Exam history (LSTM, 3 exams vs last only) | AUC | 0.761 | 0.720 | **+0.041** |
+| Federation (mean of 3 hospitals) | AUC | 0.858 | 0.842 | **+0.015** |
+| Federation – VA hospital | AUC | 0.785 | 0.723 | **+0.062** |
+
+**Summary:** calibration, exam history and federation improve performance; the graph's value is
+explanation (similar patients), not accuracy.
 
 ---
 
