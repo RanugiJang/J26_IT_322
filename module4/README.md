@@ -123,6 +123,16 @@ streamlit run app.py                                       # opens http://localh
 
 The models load once (`st.cache_resource`), so each check runs in milliseconds. If you change code under `src/` while the app is running, stop it (Ctrl+C) and start it again.
 
+## PP1 evidence — architecture + response time
+
+```bash
+python -m src.explain.benchmark          # 200 random patients -> reports/response_time.md + figures/response_time.png
+python -m pytest -q                      # 26 tests
+```
+
+- `docs/architecture.png` / `docs/architecture.svg` — system architecture (slide-ready, 16:9). Solid boxes = built, dashed = planned after PP1.
+- Response-time test: random medicine lists of 2–10 drugs (~70% cardiac, half with a genotype) through the same `check()` call the demo uses; reports median, 95th percentile and worst case against the < 3,000 ms requirement.
+
 ## Manual actions
 
 1. **DrugBank academic licence** — apply at https://go.drugbank.com/academic_research with your SLIIT email. Academic downloads are currently paused by DrugBank; when they reopen, put `full_database.xml` in `data/raw/drugbank/`. Until then the TDC DrugBank-derived set is the DrugBank source.
@@ -143,6 +153,7 @@ The models load once (`st.cache_resource`), so each check runs in milliseconds. 
 ```
 module4/
   app.py         Step 6 demo (streamlit run app.py)
+  docs/          architecture diagram (PNG + SVG)
   config/        config.yaml, pgx_variants.csv, drug_synonyms.csv, demo_patients.yaml
   src/data/      Step 1 scripts
   src/kg/        Step 2 knowledge graph
