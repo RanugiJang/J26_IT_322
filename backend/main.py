@@ -15,7 +15,7 @@ from fastapi import FastAPI, HTTPException, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-# Ensure project root is in sys.path so module2 imports work seamlessly
+# Ensure project root is in sys.path so module imports work seamlessly
 WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
 if str(WORKSPACE_ROOT) not in sys.path:
     sys.path.insert(0, str(WORKSPACE_ROOT))
@@ -35,6 +35,14 @@ from backend.database import (
 )
 from backend.video_analyzer import analyze_video_file
 
+# Module 3: ECG Quality & Rhythm Screening
+try:
+    from backend.module3.router import router as module3_router
+    _module3_available = True
+except Exception as _m3_err:
+    print(f"Warning: Module 3 ECG router could not be loaded: {_m3_err}")
+    _module3_available = False
+
 # Initialize FastAPI App
 app = FastAPI(
     title="CardioCare AI — Clinical Decision Support & Lifestyle Engine",
@@ -50,6 +58,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Register Module 3 ECG router
+if _module3_available:
+    app.include_router(module3_router)
 
 # Resolve model paths
 ranking_model_path = str(WORKSPACE_ROOT / "module2" / "models" / "lifestyle_ranking_ensemble.joblib")

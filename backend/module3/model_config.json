@@ -1,0 +1,55 @@
+{
+  "sampling_rate": 300,
+  "window_length": 3000,
+  "bandpass": [
+    0.5,
+    45.0
+  ],
+  "filter_order": 4,
+  "quality_labels": [
+    "Good",
+    "Borderline",
+    "Unusable"
+  ],
+  "artifact_labels": [
+    "Baseline Wander",
+    "Muscle Artifact",
+    "Electrode Motion"
+  ],
+  "rhythm_labels": [
+    "Normal Sinus Rhythm",
+    "Atrial Fibrillation",
+    "Other Arrhythmia"
+  ],
+  "artifact_threshold": 0.5,
+  "models": {
+    "quality": {
+      "file": "model1_quality_resnet.pt",
+      "class": "ECGResNet1D",
+      "args": {
+        "num_classes": 3
+      }
+    },
+    "artifact": {
+      "file": "model2_artifact_cnn.pt",
+      "class": "ArtifactDetectorCNN",
+      "args": {
+        "num_labels": 3
+      }
+    },
+    "arrhythmia": {
+      "file": "model3_arrhythmia_inception.pt",
+      "class": "InceptionTime",
+      "args": {
+        "num_classes": 3
+      }
+    },
+    "repair": {
+      "file": "model4_denoiser_unet.pt",
+      "class": "ECGDenoisingUNet",
+      "args": {
+        "in_channels": 1
+      }
+    }
+  }
+}
