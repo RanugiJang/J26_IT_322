@@ -102,6 +102,37 @@ python -m src.explain.check --current warfarin amiodarone --new aspirin --genoty
 
 For every drug pair: interaction probability ± confidence, risk level (DDInter severity if curated, else model-estimated from score + predicted mechanism), plain-language mechanism (DrugBank text or model-predicted type), shared pharmacogenes, graph-attention evidence (neighbours linking the two drugs listed first), and safer alternatives from the same ATC class ranked by worst predicted risk against the rest of the list. Pharmacogenomic alerts use the patient genotype when given (carrier → High), otherwise suggest testing and show South Asian / Sri Lankan Tamil / European allele frequencies. Embeddings and attention are computed once at start-up, so each check takes milliseconds.
 
+## Step 6 — Demo app (research prototype interface)
+
+```bash
+pip install -r requirements.txt                            # adds streamlit
+python -m pytest -q                                        # 24 tests (adds demo helpers + full app run)
+streamlit run app.py                                       # opens http://localhost:8501
+```
+
+1. **Pick a patient** (left). Four fictional patients in `config/demo_patients.yaml`, in Shared Patient Profile format (ID, conditions, medicines, genotype), or *New patient*.
+2. **Review medicines + genotype.** Current medicines are searchable; anything not in the list (e.g. combination products like `ezetimibe/simvastatin`) goes in *Other medicines* and is split into components.
+3. **Check interactions** → overall risk banner (and what drives it), response time, one card per drug pair (risk level + source, probability ± confidence, *why*, shared pharmacogenes, safer alternative or "monitor", graph-attention evidence), pharmacogenomic table with Sri Lankan Tamil / South Asian / European allele frequencies, JSON download.
+
+| Patient | Case shown |
+|---|---|
+| Ranjan Perera · PID-04821 | warfarin + amlodipine + atorvastatin, new aspirin; CYP2C9 \*1/\*3, VKORC1 carrier |
+| Kamala Sivakumar · PID-05317 | clopidogrel + atorvastatin + metoprolol, new omeprazole; CYP2C19 \*2/\*2 |
+| Nimal Fernando · PID-02964 | digoxin + furosemide + ramipril, new amiodarone; not tested |
+| Shirani Jayawardena · PID-03158 | simvastatin + amlodipine, new clarithromycin; SLCO1B1 c.521T>C |
+
+The models load once (`st.cache_resource`), so each check runs in milliseconds. If you change code under `src/` while the app is running, stop it (Ctrl+C) and start it again.
+
+## PP1 evidence — architecture + response time
+
+```bash
+python -m src.explain.benchmark          # 200 random patients -> reports/response_time.md + figures/response_time.png
+python -m pytest -q                      # 26 tests
+```
+
+- `docs/architecture.png` / `docs/architecture.svg` — system architecture (slide-ready, 16:9). Solid boxes = built, dashed = planned after PP1.
+- Response-time test: random medicine lists of 2–10 drugs (~70% cardiac, half with a genotype) through the same `check()` call the demo uses; reports median, 95th percentile and worst case against the < 3,000 ms requirement.
+
 ## Manual actions
 
 1. **DrugBank academic licence** — apply at https://go.drugbank.com/academic_research with your SLIIT email. Academic downloads are currently paused by DrugBank; when they reopen, put `full_database.xml` in `data/raw/drugbank/`. Until then the TDC DrugBank-derived set is the DrugBank source.
@@ -121,8 +152,14 @@ For every drug pair: interaction probability ± confidence, risk level (DDInter 
 
 ```
 module4/
-  config/        config.yaml, pgx_variants.csv
+  app.py         Step 6 demo (streamlit run app.py)
+  docs/          architecture diagram (PNG + SVG)
+  config/        config.yaml, pgx_variants.csv, drug_synonyms.csv, demo_patients.yaml
   src/data/      Step 1 scripts
+  src/kg/        Step 2 knowledge graph
+  src/model/     Steps 3–4 splits, baselines, GNN
+  src/explain/   Step 5 explanation engine + CLI
+  src/demo/      Step 6 demo helpers
   data/raw/      downloads (git-ignored)
   data/interim/  Step 2 output
   data/processed/ graph tensors (Step 3)
@@ -135,6 +172,8 @@ module4/
 2. Entity resolution + knowledge graph ✅
 3. Splits + baselines (DDInter lookup, XGBoost) ✅
 4. GNN (GATv2) + mechanism head + MC-dropout confidence ✅
-5. **Attention-based explanations + safer alternative + PGx alerts** ← you are here
-6. FAERS cross-check + population transferability
-7. Shared Patient Profile integration
+5. Attention-based explanations + safer alternative + PGx alerts ✅
+6. **Demo app (Streamlit research prototype)** ← you are here (PP1)
+7. FAERS cross-check + population transferability
+8. Clinician evaluation of explanations
+9. Shared Patient Profile integration (FastAPI)

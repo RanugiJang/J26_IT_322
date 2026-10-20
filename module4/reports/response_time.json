@@ -1,0 +1,1467 @@
+{
+  "summary": {
+    "cases": 200,
+    "median_ms": 42.290000000000006,
+    "p95_ms": 200.38149999999987,
+    "max_ms": 268.82,
+    "min_ms": 3.08,
+    "requirement_ms": 3000.0,
+    "passed": true,
+    "share_under_requirement": 1.0,
+    "by_size": {
+      "2": {
+        "n": 29,
+        "pairs": 1,
+        "median": 3.96,
+        "p95": 5.236,
+        "max": 9.16
+      },
+      "3": {
+        "n": 29,
+        "pairs": 3,
+        "median": 12.88,
+        "p95": 15.313999999999998,
+        "max": 17.39
+      },
+      "4": {
+        "n": 29,
+        "pairs": 6,
+        "median": 24.9,
+        "p95": 31.139999999999997,
+        "max": 33.19
+      },
+      "5": {
+        "n": 29,
+        "pairs": 10,
+        "median": 42.39,
+        "p95": 57.343999999999994,
+        "max": 65.2
+      },
+      "6": {
+        "n": 28,
+        "pairs": 15,
+        "median": 63.485,
+        "p95": 75.321,
+        "max": 79.69
+      },
+      "8": {
+        "n": 28,
+        "pairs": 28,
+        "median": 116.93,
+        "p95": 134.06,
+        "max": 135.04
+      },
+      "10": {
+        "n": 28,
+        "pairs": 45,
+        "median": 193.02,
+        "p95": 239.806,
+        "max": 268.82
+      }
+    }
+  },
+  "engine_load_s": 1.7201509475708008,
+  "machine": "Darwin arm64, Python 3.11.17",
+  "cases": [
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 4.72,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 13.63,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 30.07,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 41.19,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 66.2,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 132.79,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 190.24,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.59,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 12.66,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 21.98,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 37.67,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 60.15,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 110.69,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 198.36,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 4.46,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 14.93,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 20.34,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 40.22,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 75.23,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 114.15,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 226.9,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.83,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 13.91,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 31.5,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 33.38,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 59.71,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 116.18,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 174.79,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 5.07,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 12.15,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 24.9,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 40.39,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 57.52,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 110.0,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 240.24,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 4.25,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 12.88,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 23.6,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 48.11,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 45.58,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 117.58,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 268.82,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 9.16,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 14.3,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 23.14,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 35.56,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 65.6,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 105.78,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 158.27,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 4.23,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 13.36,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 21.77,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 42.39,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 75.37,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 134.41,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 176.86,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.08,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 12.74,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 22.82,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 46.65,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 64.73,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 117.76,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 208.12,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.75,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 11.37,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 25.62,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 43.33,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 61.67,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 110.33,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 184.92,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.5,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 12.7,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 23.39,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 52.29,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 53.45,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 109.52,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 206.3,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 5.26,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 17.39,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 33.19,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 38.56,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 72.28,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 125.11,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 188.85,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 5.02,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 14.3,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 4,
+      "pairs": 3,
+      "ms": 10.69,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 42.34,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 63.24,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 110.79,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 214.85,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 5.08,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 12.71,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 22.79,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 49.71,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 57.29,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 115.84,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 220.7,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.96,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 10.3,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 27.97,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 43.65,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 61.28,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 108.2,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 188.42,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.21,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 11.63,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 25.36,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 40.56,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 67.88,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 119.83,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 160.2,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.88,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 14.31,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 24.0,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 57.92,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 66.6,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 128.61,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 239.0,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.39,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 12.0,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 30.6,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 43.51,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 79.69,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 132.83,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 185.52,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 5.17,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 14.81,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 30.25,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 65.2,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 57.88,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 135.04,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 185.48,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.45,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 14.41,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 26.44,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 42.24,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 62.14,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 116.28,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 187.41,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.73,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 12.82,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 30.3,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 40.46,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 56.16,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 101.59,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 188.86,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 4.18,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 11.12,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 30.35,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 38.11,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 66.84,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 114.22,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 195.8,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 4.88,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 13.46,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 22.74,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 56.48,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 64.68,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 119.5,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 233.75,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.64,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 11.02,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 28.1,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 40.43,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 64.62,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 123.55,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 200.07,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 5.2,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 9.98,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 25.2,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 49.35,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 63.51,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 118.81,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 212.89,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.95,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 15.57,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 22.04,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 36.82,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 71.88,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 110.34,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 185.58,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.75,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 14.4,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 24.64,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 51.0,
+      "genotype": false,
+      "overall": "Moderate"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 59.76,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 124.9,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 199.0,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 3.78,
+      "genotype": false,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 11.08,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 22.24,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 52.08,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 6,
+      "pairs": 15,
+      "ms": 63.46,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 8,
+      "pairs": 28,
+      "ms": 133.41,
+      "genotype": true,
+      "overall": "High"
+    },
+    {
+      "size": 10,
+      "pairs": 45,
+      "ms": 174.7,
+      "genotype": true,
+      "overall": "Moderate"
+    },
+    {
+      "size": 2,
+      "pairs": 1,
+      "ms": 4.31,
+      "genotype": true,
+      "overall": "Low"
+    },
+    {
+      "size": 3,
+      "pairs": 3,
+      "ms": 14.14,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 4,
+      "pairs": 6,
+      "ms": 27.45,
+      "genotype": false,
+      "overall": "High"
+    },
+    {
+      "size": 5,
+      "pairs": 10,
+      "ms": 46.13,
+      "genotype": true,
+      "overall": "High"
+    }
+  ]
+}
