@@ -5,7 +5,7 @@ One platform that predicts, explains and helps manage cardiovascular disease (CV
 - **Project ID:** J26-IT-322
 - **Institution:** SLIIT, Faculty of Computing, IT4010 Research Project
 - **Supervisor:** Prof. Sanvitha Kasthuriaarachchi
-- **Co-supervisor:** Ms. Thisora Shyamalee
+- **Co-supervisor:** Ms. Thisara Shyamalee
 
 ---
 
@@ -255,7 +255,7 @@ Based only on what each module README states.
 ## Acknowledgements
 
 - **SLIIT Faculty of Computing**, IT4010 Research Project.
-- **Prof. Sanvitha Kasthuriaarachchi** (supervisor) and **Ms. Thisora Shyamalee** (co-supervisor).
+- **Prof. Sanvitha Kasthuriaarachchi** (supervisor) and **Ms. Thisara Shyamalee** (co-supervisor).
 - Dataset and resource providers named in the module READMEs:
   - Module 1: Framingham Heart Study (via Kaggle), `riskCommunicator` R package, UCI Heart Disease dataset.
   - Module 2: ACC/AHA and BACPR cardiac rehabilitation cohort (as named in the Module 2 README).
