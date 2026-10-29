@@ -41,7 +41,7 @@ export const DashboardHero: React.FC<DashboardHeroProps> = ({
           {/* Top Headline: "Hello, Hanna! How are you feeling today?" */}
           <div className="relative z-10">
             <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Hello, {patientName}!
+              Hi, {patientName}!
             </h1>
             <p className="text-sm text-slate-400 mt-1 font-medium">
               How are you feeling today?
@@ -271,9 +271,8 @@ export const DashboardHero: React.FC<DashboardHeroProps> = ({
                 ].map((d) => (
                   <div
                     key={d.day}
-                    className={`rounded-xl py-1.5 text-xs font-semibold ${
-                      d.active ? 'bg-sky-600 text-white font-bold shadow-xs' : 'bg-slate-50 text-slate-600'
-                    }`}
+                    className={`rounded-xl py-1.5 text-xs font-semibold ${d.active ? 'bg-sky-600 text-white font-bold shadow-xs' : 'bg-slate-50 text-slate-600'
+                      }`}
                   >
                     <div className="text-[9px] uppercase tracking-wider opacity-80">{d.day}</div>
                     <div className="text-xs font-black">{d.num}</div>
