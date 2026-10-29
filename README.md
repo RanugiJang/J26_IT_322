@@ -157,6 +157,6 @@ The model tracks hidden fatigue state rep-by-rep within the uploaded video — n
 
 | Name | Student ID | Role |
 |---|---|---|
-| Hashinika Janali | IT23179462 | Module 2 — CVD Lifestyle Recommendation Engine |
+| Hashinika | IT23179462 | Module 2 — CVD Lifestyle Recommendation Engine |
 
 **📌 Project J26-IT-322 | SLIIT Faculty of Computing | SDG 3 — Good Health & Well-being**
