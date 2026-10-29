@@ -1,0 +1,35 @@
+{
+  "model": "Cardiac Exercise Prescriber (L2-Regularized Logistic Regression)",
+  "dataset": "module2/data/Exercise_Prescription.xlsx (CDC NHANES Clean Cohort)",
+  "raw_samples": 6337,
+  "clean_samples": 6278,
+  "train_samples": 5022,
+  "test_samples": 1256,
+  "train_accuracy": 0.844484269215452,
+  "test_accuracy": 0.8463375796178344,
+  "balanced_accuracy": 0.8026129049085934,
+  "macro_f1": 0.8168306089726357,
+  "features": [
+    "Age",
+    "Gender",
+    "BMI",
+    "Predicted_Risk_Score",
+    "Sitting_Time_Min",
+    "Moderate_Activity_Min"
+  ],
+  "classes": [
+    "Brisk Walking / Stationary Cycling | 15m | Low-Moderate (50% HRR)",
+    "Continuous Walking & Mild Resistance | 20m | Moderate (50-60% HRR)",
+    "Flat Ground Slow Walking | 10m | Low (40-50% HRR)",
+    "Seated Chair Aerobics & Gentle Mobility | 5m | Very Low (<40% HRR)"
+  ],
+  "feature_importances": {
+    "Age": 0.14107917126763989,
+    "Gender": 0.011006801782942579,
+    "BMI": 0.26357509744016094,
+    "Predicted_Risk_Score": 0.32093196523993955,
+    "Sitting_Time_Min": 0.2471049568408509,
+    "Moderate_Activity_Min": 0.016302007428466193
+  },
+  "clinical_guidelines": "WHO & ACC/AHA Cardiac Rehabilitation Functional Prehab Stratification"
+}
