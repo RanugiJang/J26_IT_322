@@ -1,0 +1,49 @@
+# Fictional demo patients for the Step 6 Streamlit demo (PP1).
+# Fields mirror the CardioLoop Shared Patient Profile so the demo can later read
+# real profiles through the integration API instead of this file.
+# All people below are invented — no real patient data.
+
+patients:
+  - id: PID-04821
+    name: Ranjan Perera
+    age: 64
+    sex: Male
+    cohort: Colombo cohort
+    conditions: [Atrial fibrillation, Hypertension, High cholesterol]
+    current: [warfarin, amlodipine, atorvastatin]
+    new: aspirin
+    genotype: {CYP2C9: "*1/*3", VKORC1: "-1639G>A"}
+    note: GP wants to add low-dose aspirin after a cardiology review.
+
+  - id: PID-05317
+    name: Kamala Sivakumar
+    age: 58
+    sex: Female
+    cohort: Jaffna cohort
+    conditions: [Coronary stent (2025), Gastritis]
+    current: [clopidogrel, atorvastatin, metoprolol]
+    new: omeprazole
+    genotype: {CYP2C19: "*2/*2"}
+    note: Stomach pain; omeprazole proposed for gastric protection.
+
+  - id: PID-02964
+    name: Nimal Fernando
+    age: 71
+    sex: Male
+    cohort: Kandy cohort
+    conditions: [Heart failure, Atrial fibrillation]
+    current: [digoxin, furosemide, ramipril]
+    new: amiodarone
+    genotype: {}
+    note: Rhythm control being considered; no genetic test on file.
+
+  - id: PID-03158
+    name: Shirani Jayawardena
+    age: 66
+    sex: Female
+    cohort: Galle cohort
+    conditions: [High cholesterol, Chest infection]
+    current: [simvastatin, amlodipine]
+    new: clarithromycin
+    genotype: {SLCO1B1: "c.521T>C"}
+    note: Antibiotic needed for a chest infection.
